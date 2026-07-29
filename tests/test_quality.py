@@ -1,4 +1,5 @@
 import pytest
+
 from pipelineproof.catalog import task_catalog
 from pipelineproof.quality import quality_score
 from pipelineproof.templates import write_task

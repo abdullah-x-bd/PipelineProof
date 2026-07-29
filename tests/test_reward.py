@@ -1,4 +1,5 @@
 import pytest
+
 from pipelineproof.soundness import reward_ladder
 
 pytestmark = pytest.mark.slow

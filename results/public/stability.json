@@ -22,26 +22,6 @@
       "task_id": "feature-schema-a"
     },
     {
-      "mean_quality": 0.6666666666666666,
-      "mean_reward": 0.65,
-      "quality_std": 0.0,
-      "reward_std": 0.0,
-      "rollouts": 4,
-      "stable": true,
-      "style": "broken",
-      "task_id": "group-leakage-a"
-    },
-    {
-      "mean_quality": 1.0,
-      "mean_reward": 1.0,
-      "quality_std": 0.0,
-      "reward_std": 0.0,
-      "rollouts": 4,
-      "stable": true,
-      "style": "canonical",
-      "task_id": "group-leakage-a"
-    },
-    {
       "mean_quality": 0.5,
       "mean_reward": 0.65,
       "quality_std": 0.0,
@@ -82,26 +62,6 @@
       "task_id": "serialization-a"
     },
     {
-      "mean_quality": 0.3333333333333333,
-      "mean_reward": 0.65,
-      "quality_std": 0.0,
-      "reward_std": 0.0,
-      "rollouts": 4,
-      "stable": true,
-      "style": "broken",
-      "task_id": "target-leakage-a"
-    },
-    {
-      "mean_quality": 1.0,
-      "mean_reward": 1.0,
-      "quality_std": 0.0,
-      "reward_std": 0.0,
-      "rollouts": 4,
-      "stable": true,
-      "style": "canonical",
-      "task_id": "target-leakage-a"
-    },
-    {
       "mean_quality": 0.5,
       "mean_reward": 0.65,
       "quality_std": 0.0,
@@ -120,6 +80,46 @@
       "stable": true,
       "style": "canonical",
       "task_id": "wrong-eval-a"
+    },
+    {
+      "mean_quality": 0.6666666666666666,
+      "mean_reward": 0.65,
+      "quality_std": 0.0,
+      "reward_std": 0.0,
+      "rollouts": 4,
+      "stable": true,
+      "style": "broken",
+      "task_id": "group-leakage-a"
+    },
+    {
+      "mean_quality": 1.0,
+      "mean_reward": 1.0,
+      "quality_std": 0.0,
+      "reward_std": 0.0,
+      "rollouts": 4,
+      "stable": true,
+      "style": "canonical",
+      "task_id": "group-leakage-a"
+    },
+    {
+      "mean_quality": 0.3333333333333333,
+      "mean_reward": 0.65,
+      "quality_std": 0.0,
+      "reward_std": 0.0,
+      "rollouts": 4,
+      "stable": true,
+      "style": "broken",
+      "task_id": "target-leakage-a"
+    },
+    {
+      "mean_quality": 1.0,
+      "mean_reward": 1.0,
+      "quality_std": 0.0,
+      "reward_std": 0.0,
+      "rollouts": 4,
+      "stable": true,
+      "style": "canonical",
+      "task_id": "target-leakage-a"
     }
   ]
 }

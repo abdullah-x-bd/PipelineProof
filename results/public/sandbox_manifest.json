@@ -16,7 +16,7 @@
     "user": "65532:65532",
     "wall_timeout_seconds": 30
   },
-  "docker_available_on_build_host": false,
+  "docker_available_during_run": true,
   "local": {
     "cpu_limit_seconds": 25,
     "filesystem_isolation": false,
