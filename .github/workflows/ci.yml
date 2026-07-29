@@ -69,8 +69,9 @@ jobs:
           from pathlib import Path
 
           hashes = json.loads(Path("/tmp/pipelineproof-evidence/release_hashes.json").read_text())
-          forbidden = (".git/", ".venv/", "build/", "dist/", "pipelineproof.egg-info/")
-          assert not [path for path in hashes if path.startswith(forbidden)], hashes
+          forbidden = {".git", ".venv", "build", "dist", "pipelineproof.egg-info"}
+          invalid = [path for path in hashes if forbidden & set(Path(path).parts)]
+          assert not invalid, invalid
           PY
       - uses: actions/upload-artifact@v4
         with:
