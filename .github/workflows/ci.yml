@@ -39,14 +39,16 @@ jobs:
       - run: pipelineproof verify --task feature-schema-a --candidate controls/feature-schema-a/canonical --mode docker > /tmp/correct.json
       - run: pipelineproof verify --task feature-schema-a --candidate /tmp/pipelineproof-tasks/feature-schema-a --mode docker > /tmp/broken.json
       - run: |
+          cat /tmp/correct.json
+          cat /tmp/broken.json
           python - <<'PY'
           import json
           from pathlib import Path
 
           correct = json.loads(Path("/tmp/correct.json").read_text())
           broken = json.loads(Path("/tmp/broken.json").read_text())
-          assert correct["passed"] is True
-          assert broken["passed"] is False
+          assert correct["passed"] is True, correct
+          assert broken["passed"] is False, broken
           PY
 
   evidence:
