@@ -1,4 +1,5 @@
 import pytest
+
 from pipelineproof.catalog import get_task
 from pipelineproof.soundness import ATTACKS
 from pipelineproof.templates import write_task
