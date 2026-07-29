@@ -18,7 +18,7 @@ Required fields:
 }
 ```
 
-`reward` and `independent_quality` must be between zero and one. `rollout_id` must preserve generation order within each model, route, harness, and task cell.
+`reward` and `independent_quality` must be between zero and one. Rollout identifiers must be unique within each model, route, harness, and task cell. Numeric identifiers define best-of-N generation order.
 
 Optional fields may include the model endpoint, prompt version, token limits, turn limit, sandbox image digest, trajectory path, patch path, latency, token counts, and cost.
 
@@ -36,4 +36,4 @@ The output contains:
 - `best_of_n.json`
 - `failure_breakdown.json`
 
-The panel groups results by model, provider route, and harness. It reports bootstrap intervals and ranks cells by the lower bound of mean reward. The best-of-N report uses rollout order and selects the highest verifier reward within each budget before reading independent quality.
+The panel groups results by model, provider route, and harness. Repeated rollouts are averaged within task before confidence intervals are estimated. Cells are ranked by the lower bound of the task-clustered reward interval. Pairwise differences use tasks shared by both cells. The best-of-N report selects the highest verifier reward within each search budget before reading independent quality.
