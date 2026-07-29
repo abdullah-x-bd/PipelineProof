@@ -23,8 +23,10 @@ pipelineproof generate --output tasks/public
 ## Evidence
 
 ```bash
-pipelineproof reproduce --output results/public --seeds 4 --mode local
+pipelineproof reproduce --output results/reproduced --seeds 4 --mode local
 ```
+
+The command writes the soundness receipt, family controls, reward ladder, stability report, sandbox manifest, candidate-search sanity check, summary, and a source manifest. The source manifest excludes Git metadata, virtual environments, package metadata, build outputs, and the evidence directory.
 
 ## Wheel
 
@@ -33,6 +35,14 @@ python -m build
 python -m venv /tmp/pipelineproof-clean
 /tmp/pipelineproof-clean/bin/python -m pip install dist/pipelineproof-0.3.0-py3-none-any.whl
 /tmp/pipelineproof-clean/bin/pipelineproof doctor
+```
+
+## Model results
+
+```bash
+pipelineproof model-report \
+  --input results/model-rollouts.jsonl \
+  --output results/model-report
 ```
 
 ## Private evaluation
