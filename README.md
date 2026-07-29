@@ -42,7 +42,7 @@ pipelineproof verify \
   --mode local
 ```
 
-`local` mode is for development. It applies time and resource limits but does not provide network or filesystem isolation.
+`local` mode applies time and resource limits but does not provide network or filesystem isolation.
 
 For scored runs:
 
@@ -58,10 +58,12 @@ pipelineproof verify \
 ## Reproduce evidence
 
 ```bash
-pipelineproof reproduce --output results/public --seeds 4 --mode local
+pipelineproof reproduce --output results/reproduced --seeds 4 --mode local
 ```
 
-The committed evidence was produced without paid model calls. It includes:
+The generated release manifest excludes Git metadata, virtual environments, build outputs, package metadata, and the evidence output directory itself.
+
+The committed evidence includes:
 
 - Six development tasks
 - Eighteen valid repair controls
@@ -72,7 +74,19 @@ The committed evidence was produced without paid model calls. It includes:
 - An independent quality suite
 - Four-seed stability checks
 
-The observed local-mode soundness results are zero false accepts in 32 trials and zero false rejects in 12 trials. The confidence intervals are reported in `results/public/soundness_receipt.json`.
+The observed local-mode soundness results are zero false accepts in 32 trials and zero false rejects in 12 valid-solution trials. Confidence intervals are reported in `results/public/soundness_receipt.json`.
+
+## Analyze model rollouts
+
+Store one rollout per line using the schema in `docs/MODEL_EVALUATION.md`, then run:
+
+```bash
+pipelineproof model-report \
+  --input results/model-rollouts.jsonl \
+  --output results/model-report
+```
+
+The command produces a lower-bound-ranked model panel, best-of-N curves, and failure counts.
 
 ## Private evaluation bundle
 
@@ -80,4 +94,4 @@ Evaluation specifications, held-back tasks, gold repairs, and private seeds are 
 
 ## Current limit
 
-No frontier-model leaderboard or model-generated best-of-N experiment has been run. Those require model access and are intentionally separated from the zero-cost build.
+No frontier-model leaderboard or model-generated best-of-N experiment has been run. The execution and reporting path is implemented, but real model trajectories still require model access.
