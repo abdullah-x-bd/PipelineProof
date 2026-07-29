@@ -42,7 +42,7 @@ class TaskSpec:
         return data
 
     @classmethod
-    def from_private_dict(cls, data: dict[str, Any]) -> "TaskSpec":
+    def from_private_dict(cls, data: dict[str, Any]) -> TaskSpec:
         values = dict(data)
         for name in ("features", "coefficients", "writable_paths", "protected_paths"):
             if name in values:
