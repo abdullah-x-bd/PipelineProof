@@ -1,0 +1,7 @@
+{
+  "accepted": 30,
+  "causal_contract_failure": 5,
+  "functional_failure": 25,
+  "protected_surface_violation": 4,
+  "public_regression": 4
+}

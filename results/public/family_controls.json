@@ -1,0 +1,224 @@
+{
+  "accepted_valid": 18,
+  "broken_total": 6,
+  "controls": [
+    {
+      "failure_class": "causal_contract_failure",
+      "family": "feature_schema",
+      "passed": false,
+      "quality": 0.6,
+      "reward": 0.65,
+      "style": "broken",
+      "task_id": "feature-schema-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "feature_schema",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "canonical",
+      "task_id": "feature-schema-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "feature_schema",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "alternative",
+      "task_id": "feature-schema-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "feature_schema",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "refactor",
+      "task_id": "feature-schema-a"
+    },
+    {
+      "failure_class": "causal_contract_failure",
+      "family": "group_leakage",
+      "passed": false,
+      "quality": 0.6666666666666666,
+      "reward": 0.65,
+      "style": "broken",
+      "task_id": "group-leakage-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "group_leakage",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "canonical",
+      "task_id": "group-leakage-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "group_leakage",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "alternative",
+      "task_id": "group-leakage-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "group_leakage",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "refactor",
+      "task_id": "group-leakage-a"
+    },
+    {
+      "failure_class": "causal_contract_failure",
+      "family": "preprocessing_eval",
+      "passed": false,
+      "quality": 0.5,
+      "reward": 0.65,
+      "style": "broken",
+      "task_id": "preprocessing-eval-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "preprocessing_eval",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "canonical",
+      "task_id": "preprocessing-eval-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "preprocessing_eval",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "alternative",
+      "task_id": "preprocessing-eval-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "preprocessing_eval",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "refactor",
+      "task_id": "preprocessing-eval-a"
+    },
+    {
+      "failure_class": "functional_failure",
+      "family": "serialization",
+      "passed": false,
+      "quality": 0.0,
+      "reward": 0.3,
+      "style": "broken",
+      "task_id": "serialization-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "serialization",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "canonical",
+      "task_id": "serialization-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "serialization",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "alternative",
+      "task_id": "serialization-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "serialization",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "refactor",
+      "task_id": "serialization-a"
+    },
+    {
+      "failure_class": "causal_contract_failure",
+      "family": "target_leakage",
+      "passed": false,
+      "quality": 0.3333333333333333,
+      "reward": 0.65,
+      "style": "broken",
+      "task_id": "target-leakage-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "target_leakage",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "canonical",
+      "task_id": "target-leakage-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "target_leakage",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "alternative",
+      "task_id": "target-leakage-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "target_leakage",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "refactor",
+      "task_id": "target-leakage-a"
+    },
+    {
+      "failure_class": "causal_contract_failure",
+      "family": "wrong_eval",
+      "passed": false,
+      "quality": 0.5,
+      "reward": 0.65,
+      "style": "broken",
+      "task_id": "wrong-eval-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "wrong_eval",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "canonical",
+      "task_id": "wrong-eval-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "wrong_eval",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "alternative",
+      "task_id": "wrong-eval-a"
+    },
+    {
+      "failure_class": "accepted",
+      "family": "wrong_eval",
+      "passed": true,
+      "quality": 1.0,
+      "reward": 1.0,
+      "style": "refactor",
+      "task_id": "wrong-eval-a"
+    }
+  ],
+  "rejected_broken": 6,
+  "valid_total": 18
+}

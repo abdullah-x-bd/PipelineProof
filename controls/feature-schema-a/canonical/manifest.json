@@ -1,0 +1,30 @@
+{
+  "commands": [
+    "train",
+    "predict",
+    "evaluate",
+    "split",
+    "features"
+  ],
+  "entrypoint": "run_pipeline.py",
+  "family": "feature_schema",
+  "features": [
+    "alpha",
+    "beta",
+    "gamma"
+  ],
+  "module": "taskapp.core",
+  "protected_paths": [
+    "ISSUE.md",
+    "manifest.json",
+    "run_pipeline.py",
+    "tests/**",
+    "data/**"
+  ],
+  "split": "development",
+  "task_id": "feature-schema-a",
+  "variant": "a",
+  "writable_paths": [
+    "src/**"
+  ]
+}
