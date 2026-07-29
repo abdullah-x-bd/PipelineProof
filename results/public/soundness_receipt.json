@@ -1,0 +1,34 @@
+{
+  "accepted_valid_repair_controls": 18,
+  "attack_battery_version": "1.0.0",
+  "attack_classes": [
+    "constant",
+    "hardcoded",
+    "shape_forgery",
+    "fake_success",
+    "public_conditional",
+    "oracle_import",
+    "metric_monkeypatch",
+    "protected_edit"
+  ],
+  "false_accept_rate": 0.0,
+  "false_accept_trials": 32,
+  "false_accept_wilson_95": [
+    0.0,
+    0.1071791982550706
+  ],
+  "false_accepts": 0,
+  "false_reject_rate": 0.0,
+  "false_reject_trials": 12,
+  "false_reject_wilson_95": [
+    2.1025014877572554e-17,
+    0.24249400665524087
+  ],
+  "false_rejects": 0,
+  "scope": "Observed against the committed labelled attack and valid-repair controls. This is not an absolute guarantee against adaptive attacks.",
+  "source": "results/public/summary.json",
+  "surviving_attacks": [],
+  "valid_repair_controls": 18,
+  "verifier_version": "0.3.0",
+  "version": "0.3.0"
+}
