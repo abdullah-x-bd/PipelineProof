@@ -24,6 +24,9 @@ jobs:
       - run: pytest
       - run: pipelineproof doctor
       - run: python -m build
+      - run: python -m venv /tmp/pipelineproof-wheel
+      - run: /tmp/pipelineproof-wheel/bin/python -m pip install dist/*.whl
+      - run: /tmp/pipelineproof-wheel/bin/pipelineproof doctor
 
   docker:
     runs-on: ubuntu-latest
@@ -59,3 +62,18 @@ jobs:
           cache: pip
       - run: python -m pip install -e ".[dev]"
       - run: pytest -o addopts="-ra --strict-markers" -m slow
+      - run: pipelineproof reproduce --output /tmp/pipelineproof-evidence --seeds 4 --mode local
+      - run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          hashes = json.loads(Path("/tmp/pipelineproof-evidence/release_hashes.json").read_text())
+          forbidden = (".git/", ".venv/", "build/", "dist/", "pipelineproof.egg-info/")
+          assert not [path for path in hashes if path.startswith(forbidden)], hashes
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pipelineproof-evidence
+          path: /tmp/pipelineproof-evidence
+          if-no-files-found: error
