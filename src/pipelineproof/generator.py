@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import shutil
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable
 
 from pipelineproof.catalog import task_catalog
 from pipelineproof.schema import TaskSpec
