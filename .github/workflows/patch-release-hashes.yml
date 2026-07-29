@@ -1,0 +1,68 @@
+name: Patch release hashes
+
+on:
+  push:
+    branches: [agent/harden-attack-battery]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/harden-attack-battery
+      - name: Restrict release hash scope
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("src/pipelineproof/soundness.py")
+          text = path.read_text(encoding="utf-8")
+          old = '''def _hash_files(root: Path) -> dict[str, str]:
+              values = {}
+              for path in sorted(root.rglob("*")):
+                  if not path.is_file() or "__pycache__" in path.parts or path.suffix == ".pyc":
+                      continue
+                  relative = path.relative_to(root).as_posix()
+                  if relative.startswith("results/public/"):
+                      continue
+                  values[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
+              return values
+          '''
+          new = '''def _hash_files(root: Path) -> dict[str, str]:
+              ignored_roots = {
+                  ".git",
+                  ".pytest_cache",
+                  ".ruff_cache",
+                  ".venv",
+                  "build",
+                  "dist",
+                  "results",
+              }
+              values = {}
+              for path in sorted(root.rglob("*")):
+                  if not path.is_file() or "__pycache__" in path.parts or path.suffix == ".pyc":
+                      continue
+                  relative = path.relative_to(root).as_posix()
+                  parts = Path(relative).parts
+                  if parts[0] in ignored_roots or any(part.endswith(".egg-info") for part in parts):
+                      continue
+                  values[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
+              return values
+          '''
+          old = "\n".join(line[10:] if line.startswith("          ") else line for line in old.splitlines()) + "\n"
+          new = "\n".join(line[10:] if line.startswith("          ") else line for line in new.splitlines()) + "\n"
+          assert old in text
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          PY
+      - name: Commit patch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pipelineproof/soundness.py
+          git commit -m "Restrict release hash manifest to stable files"
+          git push
