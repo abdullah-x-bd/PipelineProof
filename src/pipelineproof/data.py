@@ -6,6 +6,10 @@ from typing import Any
 from pipelineproof.schema import TaskSpec
 
 
+def _symmetric_noise(rng: random.Random, amplitude: float) -> float:
+    return (2.0 * rng.random() - 1.0) * amplitude
+
+
 def make_rows(
     spec: TaskSpec,
     seed: int,
@@ -23,10 +27,10 @@ def make_rows(
         center = 4.5 if shifted else 0.0
         values = [rng.uniform(-3.0, 3.0) + center for _ in spec.features]
         target = spec.intercept + sum(c * x for c, x in zip(spec.coefficients, values, strict=True))
-        target += rng.gauss(0.0, 0.015)
+        target += _symmetric_noise(rng, 0.015)
         row: dict[str, Any] = dict(zip(spec.features, values, strict=True))
         row["target"] = target
-        row["target_proxy"] = target + rng.gauss(0.0, 0.002)
+        row["target_proxy"] = target + _symmetric_noise(rng, 0.002)
         row["row_id"] = f"r{seed}-{index}"
         if groups:
             if uneven_groups:
