@@ -33,7 +33,7 @@ jobs:
           echo "f8114da76fe0641c898f7e8ebfbb3c6c6fee109d244927aa18bf5596ecff158e  /tmp/pipelineproof.tar.xz" | sha256sum --check
           find . -mindepth 1 -maxdepth 1 ! -name .git ! -name release -exec rm -rf {} +
           tar -xJf /tmp/pipelineproof.tar.xz -C .
-          rm -rf release
+          rm -rf release .github/workflows
       - name: Commit source tree
         shell: bash
         run: |
