@@ -8,6 +8,7 @@ from pathlib import Path
 from pipelineproof import __version__
 from pipelineproof.catalog import get_task, load_private_spec, task_catalog
 from pipelineproof.generator import generate_tasks
+from pipelineproof.model_results import write_model_report
 from pipelineproof.quality import quality_score
 from pipelineproof.sandbox import DockerSandbox, LocalSandbox
 from pipelineproof.soundness import reproduce, soundness_receipt
@@ -50,6 +51,10 @@ def _parser() -> argparse.ArgumentParser:
     reproduce_parser.add_argument("--seeds", type=int, default=4)
     reproduce_parser.add_argument("--mode", choices=["local", "docker"], default="local")
 
+    model_report = sub.add_parser("model-report")
+    model_report.add_argument("--input", type=Path, required=True)
+    model_report.add_argument("--output", type=Path, required=True)
+
     sub.add_parser("sandbox-manifest")
     return parser
 
@@ -80,6 +85,8 @@ def main(argv: list[str] | None = None) -> int:
         payload = soundness_receipt(args.seeds, args.mode)
     elif args.command == "reproduce":
         payload = reproduce(args.output, args.mode, args.seeds)
+    elif args.command == "model-report":
+        payload = write_model_report(args.input, args.output)
     else:
         payload = {
             "local": LocalSandbox().manifest(),
