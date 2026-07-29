@@ -1,5 +1,7 @@
-# Public results
+# Evidence
 
-Only aggregate, non-sensitive results belong in this directory.
+`summary.json` is the entry point.
 
-Raw model trajectories, private evaluation rows, hidden seeds, oracle outputs, and unreleased attack details must remain outside the public repository. Public reports should include hashes or manifest references that connect them to the separately supplied reproducibility bundle.
+The soundness receipt uses local development mode. Docker configuration is included but was not executed on the build host.
+
+`candidate_search.json` is a labelled-control sanity check. It is not a model-generated best-of-N experiment.

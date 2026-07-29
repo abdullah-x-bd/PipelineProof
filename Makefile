@@ -1,4 +1,4 @@
-.PHONY: install test lint doctor check build
+.PHONY: install test reproduce tasks task-image build check
 
 install:
 	python -m pip install -e ".[dev]"
@@ -6,13 +6,17 @@ install:
 test:
 	pytest
 
-lint:
-	ruff check .
+tasks:
+	pipelineproof generate --output tasks/public
 
-doctor:
-	pipelineproof doctor
+reproduce:
+	pipelineproof reproduce --output results/public
 
-check: lint test doctor
+task-image:
+	docker build -f docker/task.Dockerfile -t pipelineproof-task:0.3.0 .
 
 build:
 	python -m build
+
+check: test
+	pipelineproof doctor

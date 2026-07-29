@@ -1,19 +1,17 @@
 [build-system]
-requires = ["setuptools>=75", "wheel"]
+requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "pipelineproof"
-version = "0.1.0"
-description = "RL environment for repairing silent machine-learning pipeline integrity failures"
+version = "0.3.0"
+description = "Execution-based RL environment for silent ML pipeline failures"
 readme = "README.md"
 requires-python = ">=3.11"
-authors = [
-  { name = "Abdullah X" }
-]
-dependencies = []
+authors = [{name = "Abdullah X"}]
+dependencies = ["numpy>=1.26"]
 classifiers = [
-  "Development Status :: 2 - Pre-Alpha",
+  "Development Status :: 3 - Alpha",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -22,10 +20,10 @@ classifiers = [
 
 [project.optional-dependencies]
 dev = [
-  "build>=1.2,<2",
-  "pytest>=8.3,<9",
-  "pytest-cov>=6,<7",
-  "ruff>=0.11,<1"
+  "build>=1.2",
+  "pytest>=8.3",
+  "pytest-cov>=6",
+  "ruff>=0.11"
 ]
 
 [project.scripts]
@@ -36,7 +34,9 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-ra --strict-markers"
+addopts = "-ra --strict-markers -m 'not slow'"
+markers = ["slow: full environment evidence"]
+norecursedirs = ["tasks", "controls", "attacks", "results", "dist", "build"]
 
 [tool.ruff]
 target-version = "py311"
@@ -44,3 +44,4 @@ line-length = 100
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]

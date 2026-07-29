@@ -1,0 +1,33 @@
+{
+  "accepted_valid_repair_controls": 18,
+  "broken_controls": 6,
+  "candidate_search_kind": "deterministic labelled-candidate search",
+  "development_tasks": 6,
+  "docker_executed_on_build_host": false,
+  "false_accept_trials": 32,
+  "false_accept_wilson_95": [
+    0.0,
+    0.1071791982550706
+  ],
+  "false_accepts": 0,
+  "false_reject_trials": 12,
+  "false_reject_wilson_95": [
+    2.1025014877572554e-17,
+    0.24249400665524087
+  ],
+  "false_rejects": 0,
+  "families": 6,
+  "frontier_model_panel": "not run",
+  "held_back_evaluation_tasks": 6,
+  "high_variance_cells": 0,
+  "model_generated_best_of_n": "not run",
+  "private_bundle_sha256": "88c5aa6504ff0b51cdba62390d1c22a27121451dc05f3ec4acde755339bcfe0a",
+  "rejected_broken_controls": 6,
+  "reward_ladder_strictly_monotonic": true,
+  "stability_rollouts_per_cell": 4,
+  "surviving_attacks": [],
+  "valid_repair_controls": 18,
+  "version": "0.3.0",
+  "wheel": "pipelineproof-0.3.0-py3-none-any.whl",
+  "wheel_sha256": "d959cf6f4b04970b10234a389550d57e71d0b56b5f13acabb49c46368322b4e2"
+}

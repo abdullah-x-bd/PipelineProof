@@ -1,0 +1,31 @@
+{
+  "docker": {
+    "candidate_mount": "read-only",
+    "capabilities": "dropped",
+    "cpu_limit": 1,
+    "image": "pipelineproof-task:0.3.0",
+    "memory_limit_mb": 512,
+    "mode": "docker",
+    "network": "none",
+    "no_new_privileges": true,
+    "output_limit_bytes": 1000000,
+    "process_limit": 64,
+    "root_filesystem": "read-only",
+    "scratch_mount": "read-write",
+    "tmpfs": "/tmp, noexec, nosuid, 64 MB",
+    "user": "65532:65532",
+    "wall_timeout_seconds": 30
+  },
+  "docker_available_on_build_host": false,
+  "local": {
+    "cpu_limit_seconds": 25,
+    "filesystem_isolation": false,
+    "memory_limit_mb": 1536,
+    "mode": "local",
+    "network_isolation": false,
+    "output_limit_bytes": 1000000,
+    "process_limit": 64,
+    "use": "development only",
+    "wall_timeout_seconds": 30
+  }
+}

@@ -1,5 +1,4 @@
 .git
-.github
 .venv
 __pycache__
 .pytest_cache
@@ -12,6 +11,3 @@ eval_private
 private_seeds
 results/raw
 results/private
-task_runs
-sandboxes
-workspaces

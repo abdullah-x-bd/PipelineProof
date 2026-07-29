@@ -1,0 +1,45 @@
+{
+  "attacks": [
+    {
+      "style": "constant",
+      "task_id": "feature-schema-a",
+      "valid": false
+    },
+    {
+      "style": "hardcoded",
+      "task_id": "feature-schema-a",
+      "valid": false
+    },
+    {
+      "style": "shape_forgery",
+      "task_id": "feature-schema-a",
+      "valid": false
+    },
+    {
+      "style": "fake_success",
+      "task_id": "feature-schema-a",
+      "valid": false
+    },
+    {
+      "style": "public_conditional",
+      "task_id": "feature-schema-a",
+      "valid": false
+    },
+    {
+      "style": "oracle_import",
+      "task_id": "feature-schema-a",
+      "valid": false
+    },
+    {
+      "style": "metric_monkeypatch",
+      "task_id": "feature-schema-a",
+      "valid": false
+    },
+    {
+      "style": "protected_edit",
+      "task_id": "feature-schema-a",
+      "valid": false
+    }
+  ],
+  "version": "1.0.0"
+}

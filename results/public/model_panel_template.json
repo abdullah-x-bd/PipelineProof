@@ -1,0 +1,16 @@
+{
+  "status": "not_run",
+  "required_fields": [
+    "model",
+    "version",
+    "provider_route",
+    "harness",
+    "prompt_version",
+    "task_id",
+    "rollout",
+    "reward",
+    "independent_quality",
+    "failure_class",
+    "cost"
+  ]
+}

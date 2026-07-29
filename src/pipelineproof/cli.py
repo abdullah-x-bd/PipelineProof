@@ -1,56 +1,94 @@
-"""Command-line entry points for repository health and project orientation."""
-
 from __future__ import annotations
 
 import argparse
 import json
-import platform
+import sys
 from pathlib import Path
 
 from pipelineproof import __version__
-from pipelineproof.environment import load_environment
+from pipelineproof.catalog import get_task, load_private_spec, task_catalog
+from pipelineproof.generator import generate_tasks
+from pipelineproof.quality import quality_score
+from pipelineproof.sandbox import DockerSandbox, LocalSandbox
+from pipelineproof.soundness import reproduce, soundness_receipt
+from pipelineproof.verifier import verify_spec
 
 
-def _doctor() -> int:
-    spec = load_environment()
-    report = {
-        "package": spec.name,
-        "version": __version__,
-        "python": platform.python_version(),
-        "task_root": str(spec.task_root),
-        "task_root_exists": spec.task_root.exists(),
-        "integrity_contracts": list(spec.integrity_contracts),
-        "status": "ok",
-    }
-    print(json.dumps(report, indent=2, sort_keys=True))
-    return 0
-
-
-def _show_plan() -> int:
-    plan_path = Path("docs/BUILD_PLAN.md")
-    if not plan_path.exists():
-        print(f"Build plan not found at {plan_path}")
-        return 1
-    print(plan_path.read_text(encoding="utf-8"))
-    return 0
-
-
-def build_parser() -> argparse.ArgumentParser:
+def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="pipelineproof")
-    subparsers = parser.add_subparsers(dest="command", required=True)
-    subparsers.add_parser("doctor", help="Print package and environment health information")
-    subparsers.add_parser("show-plan", help="Print the checked-in implementation plan")
+    parser.add_argument("--version", action="version", version=__version__)
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    sub.add_parser("doctor")
+    sub.add_parser("list-tasks")
+
+    generate = sub.add_parser("generate")
+    generate.add_argument("--output", type=Path, required=True)
+
+    verify_parser = sub.add_parser("verify")
+    source = verify_parser.add_mutually_exclusive_group(required=True)
+    source.add_argument("--task")
+    source.add_argument("--spec", type=Path)
+    verify_parser.add_argument("--candidate", type=Path, required=True)
+    verify_parser.add_argument("--seed", type=int)
+    verify_parser.add_argument("--mode", choices=["local", "docker"], default="local")
+
+    quality_parser = sub.add_parser("quality")
+    quality_source = quality_parser.add_mutually_exclusive_group(required=True)
+    quality_source.add_argument("--task")
+    quality_source.add_argument("--spec", type=Path)
+    quality_parser.add_argument("--candidate", type=Path, required=True)
+    quality_parser.add_argument("--seed", type=int, required=True)
+    quality_parser.add_argument("--mode", choices=["local", "docker"], default="local")
+
+    soundness = sub.add_parser("soundness-report")
+    soundness.add_argument("--seeds", type=int, default=4)
+    soundness.add_argument("--mode", choices=["local", "docker"], default="local")
+
+    reproduce_parser = sub.add_parser("reproduce")
+    reproduce_parser.add_argument("--output", type=Path, required=True)
+    reproduce_parser.add_argument("--seeds", type=int, default=4)
+    reproduce_parser.add_argument("--mode", choices=["local", "docker"], default="local")
+
+    sub.add_parser("sandbox-manifest")
     return parser
 
 
-def main() -> int:
-    args = build_parser().parse_args()
+def _spec(args):
+    return load_private_spec(args.spec) if args.spec else get_task(args.task)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = _parser().parse_args(argv)
     if args.command == "doctor":
-        return _doctor()
-    if args.command == "show-plan":
-        return _show_plan()
-    raise AssertionError(f"Unhandled command: {args.command}")
+        payload = {
+            "version": __version__,
+            "tasks": len(task_catalog()),
+            "families": len({task.family for task in task_catalog()}),
+            "docker_executable": DockerSandbox().available(),
+            "default_verifier_mode": "local",
+        }
+    elif args.command == "list-tasks":
+        payload = [task.public_dict() for task in task_catalog()]
+    elif args.command == "generate":
+        payload = {"generated": [str(path) for path in generate_tasks(args.output)]}
+    elif args.command == "verify":
+        payload = verify_spec(_spec(args), args.candidate, args.seed, args.mode).to_dict()
+    elif args.command == "quality":
+        payload = quality_score(_spec(args), args.candidate, args.seed, args.mode)
+    elif args.command == "soundness-report":
+        payload = soundness_receipt(args.seeds, args.mode)
+    elif args.command == "reproduce":
+        payload = reproduce(args.output, args.mode, args.seeds)
+    else:
+        payload = {
+            "local": LocalSandbox().manifest(),
+            "docker": DockerSandbox().manifest(),
+            "docker_executable": DockerSandbox().available(),
+        }
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    sys.exit(main())

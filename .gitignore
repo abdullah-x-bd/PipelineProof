@@ -1,34 +1,17 @@
-# Python
 __pycache__/
 *.py[cod]
 *.egg-info/
-build/
-dist/
 .pytest_cache/
+.ruff_cache/
 .coverage
 htmlcov/
-
-# Environments and tools
+build/
+dist/
 .venv/
-venv/
-.uv/
-.mypy_cache/
-.ruff_cache/
-
-# Editors and operating systems
-.vscode/
-.idea/
-.DS_Store
-Thumbs.db
-
-# Secrets and local configuration
 .env
 .env.*
-!.env.example
 *.pem
 *.key
-
-# PipelineProof protected assets
 private/
 hidden_assets/
 oracle/
@@ -36,9 +19,5 @@ eval_private/
 private_seeds/
 results/raw/
 results/private/
-artifacts/private/
-
-# Generated task workspaces
 task_runs/
-sandboxes/
 workspaces/

@@ -1,55 +1,39 @@
-"""Environment metadata and loader entry point.
-
-The initial loader intentionally exposes only public configuration. Hidden tests,
-oracle implementations, and private seeds belong to the trusted verifier runtime,
-not to the package surface available to a solving agent.
-"""
-
 from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
 
-
-@dataclass(frozen=True, slots=True)
-class EnvironmentSpec:
-    """Public description of a PipelineProof environment build."""
-
-    name: str
-    version: str
-    task_root: Path
-    integrity_contracts: tuple[str, ...]
-    mutable_globs: tuple[str, ...]
-    protected_globs: tuple[str, ...]
+from pipelineproof.catalog import families, task_catalog
+from pipelineproof.generator import generate_tasks
+from pipelineproof.quality import quality_score
+from pipelineproof.schema import TaskSpec
+from pipelineproof.verifier import verify, verify_spec
 
 
-def load_environment(task_root: str | Path | None = None) -> EnvironmentSpec:
-    """Load the public environment specification.
+@dataclass(frozen=True)
+class PipelineProofEnvironment:
+    root: Path
 
-    Args:
-        task_root: Optional path containing public task instances. When omitted,
-            the conventional repository location ``tasks/public`` is used.
+    @property
+    def tasks(self):
+        return task_catalog()
 
-    Returns:
-        An immutable public environment specification.
-    """
+    @property
+    def families(self):
+        return families()
 
-    root = Path(task_root) if task_root is not None else Path("tasks/public")
-    return EnvironmentSpec(
-        name="pipelineproof",
-        version="0.1.0",
-        task_root=root,
-        integrity_contracts=(
-            "training-data-provenance",
-            "evaluation-validity",
-            "train-serving-equivalence",
-        ),
-        mutable_globs=("src/**", "config/**"),
-        protected_globs=(
-            "tests/**",
-            "data/**",
-            "hidden_assets/**",
-            "oracle/**",
-            "pyproject.toml",
-        ),
-    )
+    def generate(self, output: Path):
+        return generate_tasks(output)
+
+    def verify(self, task_id: str, candidate: Path, seed: int | None = None, mode: str = "local"):
+        return verify(task_id, candidate, seed, mode)
+
+    def verify_spec(self, spec: TaskSpec, candidate: Path, seed: int | None = None, mode: str = "local"):
+        return verify_spec(spec, candidate, seed, mode)
+
+    def quality(self, spec: TaskSpec, candidate: Path, seed: int, mode: str = "local"):
+        return quality_score(spec, candidate, seed, mode)
+
+
+def load_environment(root: str | Path | None = None) -> PipelineProofEnvironment:
+    return PipelineProofEnvironment(Path(root or ".").resolve())

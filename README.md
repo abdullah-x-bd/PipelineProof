@@ -1,88 +1,83 @@
 # PipelineProof
 
-PipelineProof is an RL environment for repairing non-crashing machine-learning pipeline integrity failures. It evaluates whether a coding agent preserves legitimate boundaries between training, evaluation, and deployment by using hidden interventions and metamorphic tests rather than patch matching or self-reported metrics.
+PipelineProof is an execution-based RL environment for repairing non-crashing machine-learning pipeline failures.
 
-## Status
+It tests six integrity failures:
 
-Early research and engineering build for the Tensium RL Environment Trial.
+1. Feature-schema mismatch
+2. Evaluation data used during preprocessing
+3. Missing preprocessing state after serialization
+4. Evaluation on the wrong split
+5. Group leakage across splits
+6. Target-derived feature leakage
 
-The initial scope covers three integrity contracts:
-
-1. Training-data provenance
-2. Evaluation validity
-3. Train-serving equivalence
-
-The first milestone is a complete vertical slice for one defect family, including an original task repository, a gold repair, alternative correct repairs, a trusted verifier, adversarial cheats, sandbox execution, and a reproducible soundness report.
-
-## Public and private boundaries
-
-This repository contains the environment package, public task material, public tests, documentation, and reproducibility code. Hidden evaluation assets, oracle material, private seeds, raw model credentials, and unreleased result bundles must not be committed.
-
-## Development setup
-
-Requirements:
-
-- Python 3.11 or newer
-- `uv`, recommended, or `pip`
-
-Using `uv`:
-
-```bash
-uv sync --all-extras --dev
-uv run pytest
-uv run pipelineproof doctor
-```
-
-Using `pip`:
+## Install
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
-pytest
 pipelineproof doctor
+pytest
 ```
 
-On Windows PowerShell, activate the environment with:
+On Windows PowerShell:
 
 ```powershell
 .venv\Scripts\Activate.ps1
 ```
 
-## Current commands
+## Generate development tasks
 
 ```bash
-pipelineproof doctor
-pipelineproof show-plan
-pytest
+pipelineproof generate --output tasks/public
 ```
 
-## Project layout
+## Verify a candidate
 
-```text
-src/pipelineproof/        Environment package
-tasks/public/             Public task instances and fixtures
-tests/                    Package and contract tests
-attacks/                  Versioned adversarial cheat implementations
-docs/                     Design, measurement, and planning documents
-scripts/                  Reproducibility and analysis entry points
-results/public/           Public aggregate results only
+```bash
+pipelineproof verify \
+  --task feature-schema-a \
+  --candidate controls/feature-schema-a/canonical \
+  --mode local
 ```
 
-## Design principles
+`local` mode is for development. It applies time and resource limits but does not provide network or filesystem isolation.
 
-- Score repository behaviour, not the agent's claim of success.
-- Accept multiple correct implementations.
-- Keep reference assets outside the solving agent's filesystem.
-- Treat false-accept and false-reject rates as measured properties of a versioned test battery.
-- Report uncertainty at the defect-family level when generated instances are correlated.
-- Preserve raw evidence for every headline result.
+For scored runs:
 
-## Roadmap
+```bash
+docker build -f docker/task.Dockerfile -t pipelineproof-task:0.3.0 .
 
-The detailed implementation plan is in [`docs/BUILD_PLAN.md`](docs/BUILD_PLAN.md).
+pipelineproof verify \
+  --task feature-schema-a \
+  --candidate controls/feature-schema-a/canonical \
+  --mode docker
+```
 
-## License
+## Reproduce evidence
 
-No licence has been selected yet. All rights are reserved until a licence is added explicitly.
+```bash
+pipelineproof reproduce --output results/public --seeds 4 --mode local
+```
+
+The committed evidence was produced without paid model calls. It includes:
+
+- Six development tasks
+- Eighteen valid repair controls
+- Eight attack classes
+- Thirty-two attack trials
+- Twelve valid-solution trials
+- A graded reward ladder
+- An independent quality suite
+- Four-seed stability checks
+
+The observed local-mode soundness results are zero false accepts in 32 trials and zero false rejects in 12 trials. The confidence intervals are reported in `results/public/soundness_receipt.json`.
+
+## Private evaluation bundle
+
+Evaluation specifications, held-back tasks, gold repairs, and private seeds are not committed. The trusted verifier receives them separately. The solving agent receives only one task repository.
+
+## Current limit
+
+No frontier-model leaderboard or model-generated best-of-N experiment has been run. Those require model access and are intentionally separated from the zero-cost build.
