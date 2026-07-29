@@ -26,6 +26,15 @@ ATTACKS = (
     "protected_edit",
 )
 VALID_CONTROLS = ("canonical", "alternative", "refactor")
+_HASH_EXCLUDED_PARTS = {
+    ".git",
+    ".venv",
+    "__pycache__",
+    ".pytest_cache",
+    "pipelineproof.egg-info",
+    "build",
+    "dist",
+}
 
 
 def _trial(
@@ -205,7 +214,7 @@ def candidate_search(mode: str = "local") -> dict[str, Any]:
 def _hash_files(root: Path) -> dict[str, str]:
     values = {}
     for path in sorted(root.rglob("*")):
-        if not path.is_file() or "__pycache__" in path.parts or path.suffix == ".pyc":
+        if not path.is_file() or _HASH_EXCLUDED_PARTS & set(path.parts) or path.suffix == ".pyc":
             continue
         relative = path.relative_to(root).as_posix()
         if relative.startswith("results/public/"):
