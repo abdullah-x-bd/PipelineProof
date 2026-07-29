@@ -1,9 +1,7 @@
 import pytest
-
 from pipelineproof.catalog import task_catalog
 from pipelineproof.templates import write_task
 from pipelineproof.verifier import verify_spec
-
 
 pytestmark = pytest.mark.slow
 
