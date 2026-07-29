@@ -102,7 +102,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",
@@ -390,7 +390,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",
@@ -678,7 +678,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",
@@ -966,7 +966,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",
