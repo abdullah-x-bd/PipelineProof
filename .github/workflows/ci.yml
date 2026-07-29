@@ -39,8 +39,6 @@ jobs:
       - run: pipelineproof verify --task feature-schema-a --candidate controls/feature-schema-a/canonical --mode docker > /tmp/correct.json
       - run: pipelineproof verify --task feature-schema-a --candidate /tmp/pipelineproof-tasks/feature-schema-a --mode docker > /tmp/broken.json
       - run: |
-          cat /tmp/correct.json
-          cat /tmp/broken.json
           python - <<'PY'
           import json
           from pathlib import Path
