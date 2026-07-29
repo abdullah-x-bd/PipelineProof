@@ -32,6 +32,8 @@ The first feature-schema verifier serialized hidden rows with sorted JSON keys. 
 
 A second error was treating causal invariance as independently rewardable. Constant outputs are invariant but do not solve the task. Causal and persistence rewards are now gated on hidden functional correctness.
 
+The first release manifest also included `.git` and generated package metadata from the build checkout. Those paths made the manifest host-specific. The manifest generator now excludes version-control, virtual-environment, package-build, and evidence-output state.
+
 ## Evidence
 
 - Six development tasks
@@ -44,10 +46,12 @@ A second error was treating causal invariance as independently rewardable. Const
 - All six broken family controls rejected
 - Strictly monotonic five-level reward ladder
 - No high-variance control cells across four deterministic seeds
+- Docker scored-path validation in CI
+- Reproducible model-panel, best-of-N, and failure-report generation from JSONL rollouts
 
 ## Limits
 
-The committed evidence uses local process isolation. Docker configuration is implemented but was not executed on the build host. The tasks use small deterministic models. A frontier-model panel, scaffold comparison, and model-generated best-of-N sweep remain unrun. The labelled-candidate search is a verifier sanity check, not a replacement for those experiments.
+The committed statistical receipt uses local process isolation. The scored Docker path is exercised separately in CI with a correct control and a broken task. The tasks use small deterministic models. A frontier-model panel, scaffold comparison, and model-generated best-of-N sweep remain unrun. The labelled-candidate search is a verifier sanity check, not a replacement for those experiments.
 
 ## Comments on the checklist
 
