@@ -26,6 +26,22 @@ ATTACKS = (
     "protected_edit",
 )
 VALID_CONTROLS = ("canonical", "alternative", "refactor")
+_ERROR_FIELDS = {"error", "execution_error", "stderr"}
+
+
+def _error_summary(value: str) -> str:
+    lines = [line.strip() for line in value.splitlines() if line.strip()]
+    return lines[-1] if lines else ""
+
+
+def _stable_payload(value: Any, key: str | None = None) -> Any:
+    if key in _ERROR_FIELDS and isinstance(value, str):
+        return _error_summary(value)
+    if isinstance(value, dict):
+        return {name: _stable_payload(item, name) for name, item in value.items()}
+    if isinstance(value, list):
+        return [_stable_payload(item) for item in value]
+    return value
 
 
 def _trial(
@@ -40,10 +56,10 @@ def _trial(
             if measure_quality
             else {"task_id": spec.task_id, "score": None, "checks": {}}
         )
-    data = result.to_dict()
+    data = _stable_payload(result.to_dict())
     data["style"] = style
     data["candidate"] = style
-    data["quality"] = quality
+    data["quality"] = _stable_payload(quality)
     data["failure_class"] = classify(result.checks)
     return data
 
@@ -56,7 +72,10 @@ def soundness_receipt(
     valid = []
     for seed_index in range(seed_offset, seed_offset + seed_count):
         base = spec.seed + 20_000 + seed_index * 101
-        invalid.extend(_trial(spec, style, base + index, mode, False) for index, style in enumerate(ATTACKS))
+        invalid.extend(
+            _trial(spec, style, base + index, mode, False)
+            for index, style in enumerate(ATTACKS)
+        )
         valid.extend(
             _trial(spec, style, base + 500 + index, mode, False)
             for index, style in enumerate(VALID_CONTROLS)
@@ -81,7 +100,9 @@ def soundness_receipt(
             "rate": false_rejects / len(valid),
             "wilson_95": list(wilson_interval(false_rejects, len(valid))),
         },
-        "surviving_attacks": sorted({item["style"] for item in invalid if item["passed"]}),
+        "surviving_attacks": sorted(
+            {item["style"] for item in invalid if item["passed"]}
+        ),
         "invalid_trials": invalid,
         "valid_trials": valid,
     }
@@ -111,7 +132,10 @@ def reward_ladder(mode: str = "local") -> dict[str, Any]:
     totals = [row["reward"]["total"] for row in rows]
     return {
         "task_id": spec.task_id,
-        "strictly_monotonic": all(totals[index] < totals[index + 1] for index in range(len(totals) - 1)),
+        "strictly_monotonic": all(
+            totals[index] < totals[index + 1]
+            for index in range(len(totals) - 1)
+        ),
         "levels": rows,
     }
 
@@ -150,7 +174,12 @@ def stability_report(seed_count: int = 4, mode: str = "local") -> dict[str, Any]
             rewards = []
             qualities = []
             for index in range(seed_count):
-                result = _trial(spec, style, spec.seed + 60_000 + index * 137, mode)
+                result = _trial(
+                    spec,
+                    style,
+                    spec.seed + 60_000 + index * 137,
+                    mode,
+                )
                 rewards.append(result["reward"]["total"])
                 qualities.append(result["quality"]["score"])
             rows.append(
@@ -162,10 +191,14 @@ def stability_report(seed_count: int = 4, mode: str = "local") -> dict[str, Any]
                     "reward_std": statistics.pstdev(rewards),
                     "mean_quality": statistics.fmean(qualities),
                     "quality_std": statistics.pstdev(qualities),
-                    "stable": len(set(rewards)) == 1 and len(set(qualities)) == 1,
+                    "stable": len(set(rewards)) == 1
+                    and len(set(qualities)) == 1,
                 }
             )
-    return {"rows": rows, "high_variance": [row for row in rows if not row["stable"]]}
+    return {
+        "rows": rows,
+        "high_variance": [row for row in rows if not row["stable"]],
+    }
 
 
 def candidate_search(mode: str = "local") -> dict[str, Any]:
@@ -186,7 +219,9 @@ def candidate_search(mode: str = "local") -> dict[str, Any]:
     ]
     curve = []
     for budget in (1, 2, 4, 8):
-        selected = max(candidates[:budget], key=lambda item: item["reward"]["total"])
+        selected = max(
+            candidates[:budget], key=lambda item: item["reward"]["total"]
+        )
         curve.append(
             {
                 "budget": budget,
@@ -203,18 +238,37 @@ def candidate_search(mode: str = "local") -> dict[str, Any]:
 
 
 def _hash_files(root: Path) -> dict[str, str]:
+    ignored_roots = {
+        ".git",
+        ".github",
+        ".pytest_cache",
+        ".ruff_cache",
+        ".venv",
+        "build",
+        "dist",
+        "results",
+    }
     values = {}
     for path in sorted(root.rglob("*")):
-        if not path.is_file() or "__pycache__" in path.parts or path.suffix == ".pyc":
+        if (
+            not path.is_file()
+            or "__pycache__" in path.parts
+            or path.suffix == ".pyc"
+        ):
             continue
         relative = path.relative_to(root).as_posix()
-        if relative.startswith("results/public/"):
+        parts = Path(relative).parts
+        if parts[0] in ignored_roots or any(
+            part.endswith(".egg-info") for part in parts
+        ):
             continue
         values[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
     return values
 
 
-def reproduce(output: Path, mode: str = "local", seed_count: int = 4) -> dict[str, Any]:
+def reproduce(
+    output: Path, mode: str = "local", seed_count: int = 4
+) -> dict[str, Any]:
     output.mkdir(parents=True, exist_ok=True)
     receipt = soundness_receipt(seed_count, mode)
     ladder = reward_ladder(mode)
@@ -236,7 +290,10 @@ def reproduce(output: Path, mode: str = "local", seed_count: int = 4) -> dict[st
         "sandbox_manifest.json": sandbox,
     }
     for name, value in files.items():
-        (output / name).write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        (output / name).write_text(
+            json.dumps(value, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
     summary = {
         "task_count": len(task_catalog()),
         "families": len({task.family for task in task_catalog()}),
@@ -254,7 +311,10 @@ def reproduce(output: Path, mode: str = "local", seed_count: int = 4) -> dict[st
         "frontier_model_panel": "not run",
         "model_best_of_n": "not run",
     }
-    (output / "summary.json").write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    (output / "summary.json").write_text(
+        json.dumps(summary, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
     root = Path(__file__).resolve().parents[2]
     (output / "release_hashes.json").write_text(
         json.dumps(_hash_files(root), indent=2, sort_keys=True) + "\n",
