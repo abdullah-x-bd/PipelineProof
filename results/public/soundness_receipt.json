@@ -58,19 +58,20 @@
     {
       "candidate": "hardcoded",
       "checks": {
-        "causal": false,
+        "causal": true,
         "functional": false,
         "interface": true,
-        "persistence": false,
+        "persistence": true,
         "protected": true,
-        "public_tests": false
+        "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-ugtjjscy/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
-        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "hidden_rmse": 14.097435696260098,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
         "surface_changes": []
       },
-      "failure_class": "public_regression",
+      "failure_class": "functional_failure",
       "passed": false,
       "quality": {
         "checks": {},
@@ -83,8 +84,8 @@
         "interface": 1.0,
         "persistence": 0.0,
         "protected": 1.0,
-        "public_tests": 0.0,
-        "total": 0.2
+        "public_tests": 1.0,
+        "total": 0.3
       },
       "style": "hardcoded",
       "task_id": "feature-schema-a",
@@ -279,8 +280,8 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0016936944256217966,
-        "permutation_delta": 18.973655661137485,
+        "hidden_rmse": 0.0016936944256245887,
+        "permutation_delta": 18.9736556611375,
         "reload_delta": 0.0,
         "surface_changes": [
           "changed:run_pipeline.py"
@@ -345,19 +346,20 @@
     {
       "candidate": "hardcoded",
       "checks": {
-        "causal": false,
+        "causal": true,
         "functional": false,
         "interface": true,
-        "persistence": false,
+        "persistence": true,
         "protected": true,
-        "public_tests": false
+        "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-mh0i8dlz/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
-        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "hidden_rmse": 14.28794397900582,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
         "surface_changes": []
       },
-      "failure_class": "public_regression",
+      "failure_class": "functional_failure",
       "passed": false,
       "quality": {
         "checks": {},
@@ -370,8 +372,8 @@
         "interface": 1.0,
         "persistence": 0.0,
         "protected": 1.0,
-        "public_tests": 0.0,
-        "total": 0.2
+        "public_tests": 1.0,
+        "total": 0.3
       },
       "style": "hardcoded",
       "task_id": "feature-schema-a",
@@ -566,8 +568,8 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0010517399413030434,
-        "permutation_delta": 18.469979747502588,
+        "hidden_rmse": 0.0010517399413060911,
+        "permutation_delta": 18.46997974750259,
         "reload_delta": 0.0,
         "surface_changes": [
           "changed:run_pipeline.py"
@@ -632,19 +634,20 @@
     {
       "candidate": "hardcoded",
       "checks": {
-        "causal": false,
+        "causal": true,
         "functional": false,
         "interface": true,
-        "persistence": false,
+        "persistence": true,
         "protected": true,
-        "public_tests": false
+        "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-65suqv99/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
-        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "hidden_rmse": 12.364961271123862,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
         "surface_changes": []
       },
-      "failure_class": "public_regression",
+      "failure_class": "functional_failure",
       "passed": false,
       "quality": {
         "checks": {},
@@ -657,8 +660,8 @@
         "interface": 1.0,
         "persistence": 0.0,
         "protected": 1.0,
-        "public_tests": 0.0,
-        "total": 0.2
+        "public_tests": 1.0,
+        "total": 0.3
       },
       "style": "hardcoded",
       "task_id": "feature-schema-a",
@@ -853,8 +856,8 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.006106013343592965,
-        "permutation_delta": 19.912405460164585,
+        "hidden_rmse": 0.006106013343613151,
+        "permutation_delta": 19.912405460164564,
         "reload_delta": 0.0,
         "surface_changes": [
           "changed:run_pipeline.py"
@@ -919,19 +922,20 @@
     {
       "candidate": "hardcoded",
       "checks": {
-        "causal": false,
+        "causal": true,
         "functional": false,
         "interface": true,
-        "persistence": false,
+        "persistence": true,
         "protected": true,
-        "public_tests": false
+        "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-2rlqxt58/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
-        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "hidden_rmse": 13.961255232574215,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
         "surface_changes": []
       },
-      "failure_class": "public_regression",
+      "failure_class": "functional_failure",
       "passed": false,
       "quality": {
         "checks": {},
@@ -944,8 +948,8 @@
         "interface": 1.0,
         "persistence": 0.0,
         "protected": 1.0,
-        "public_tests": 0.0,
-        "total": 0.2
+        "public_tests": 1.0,
+        "total": 0.3
       },
       "style": "hardcoded",
       "task_id": "feature-schema-a",
@@ -1140,8 +1144,8 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.003647389837655847,
-        "permutation_delta": 17.124823259512063,
+        "hidden_rmse": 0.0036473898376600984,
+        "permutation_delta": 17.12482325951206,
         "reload_delta": 0.0,
         "surface_changes": [
           "changed:run_pipeline.py"
@@ -1185,7 +1189,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.003998263788038275,
+        "hidden_rmse": 0.0039982637880375295,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1221,7 +1225,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.00511207794199721,
+        "hidden_rmse": 0.005112077941987927,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1257,7 +1261,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0018132470164695666,
+        "hidden_rmse": 0.001813247016466739,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1293,7 +1297,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.011853241852584469,
+        "hidden_rmse": 0.011853241852572104,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1329,7 +1333,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0017316031579489319,
+        "hidden_rmse": 0.00173160315794485,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1365,7 +1369,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0032847546168638096,
+        "hidden_rmse": 0.00328475461686174,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1401,7 +1405,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.002720945637271116,
+        "hidden_rmse": 0.0027209456372698317,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1437,7 +1441,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.003304594753289732,
+        "hidden_rmse": 0.0033045947532943016,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1473,7 +1477,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0012940368727897586,
+        "hidden_rmse": 0.0012940368727930051,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1509,7 +1513,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.00991103561629542,
+        "hidden_rmse": 0.009911035616301113,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1545,7 +1549,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.009496295074241887,
+        "hidden_rmse": 0.009496295074231392,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1581,7 +1585,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0012745041202102765,
+        "hidden_rmse": 0.0012745041202120895,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
