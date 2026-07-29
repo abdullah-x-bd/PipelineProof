@@ -58,19 +58,20 @@
     {
       "candidate": "hardcoded",
       "checks": {
-        "causal": false,
+        "causal": true,
         "functional": false,
         "interface": true,
-        "persistence": false,
+        "persistence": true,
         "protected": true,
-        "public_tests": false
+        "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-ugtjjscy/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
-        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "hidden_rmse": 14.097435696260098,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
         "surface_changes": []
       },
-      "failure_class": "public_regression",
+      "failure_class": "functional_failure",
       "passed": false,
       "quality": {
         "checks": {},
@@ -83,8 +84,8 @@
         "interface": 1.0,
         "persistence": 0.0,
         "protected": 1.0,
-        "public_tests": 0.0,
-        "total": 0.2
+        "public_tests": 1.0,
+        "total": 0.3
       },
       "style": "hardcoded",
       "task_id": "feature-schema-a",
@@ -101,7 +102,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",
@@ -345,19 +346,20 @@
     {
       "candidate": "hardcoded",
       "checks": {
-        "causal": false,
+        "causal": true,
         "functional": false,
         "interface": true,
-        "persistence": false,
+        "persistence": true,
         "protected": true,
-        "public_tests": false
+        "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-mh0i8dlz/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
-        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "hidden_rmse": 14.28794397900582,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
         "surface_changes": []
       },
-      "failure_class": "public_regression",
+      "failure_class": "functional_failure",
       "passed": false,
       "quality": {
         "checks": {},
@@ -370,8 +372,8 @@
         "interface": 1.0,
         "persistence": 0.0,
         "protected": 1.0,
-        "public_tests": 0.0,
-        "total": 0.2
+        "public_tests": 1.0,
+        "total": 0.3
       },
       "style": "hardcoded",
       "task_id": "feature-schema-a",
@@ -388,7 +390,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",
@@ -632,19 +634,20 @@
     {
       "candidate": "hardcoded",
       "checks": {
-        "causal": false,
+        "causal": true,
         "functional": false,
         "interface": true,
-        "persistence": false,
+        "persistence": true,
         "protected": true,
-        "public_tests": false
+        "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-65suqv99/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
-        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "hidden_rmse": 12.364961271123862,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
         "surface_changes": []
       },
-      "failure_class": "public_regression",
+      "failure_class": "functional_failure",
       "passed": false,
       "quality": {
         "checks": {},
@@ -657,8 +660,8 @@
         "interface": 1.0,
         "persistence": 0.0,
         "protected": 1.0,
-        "public_tests": 0.0,
-        "total": 0.2
+        "public_tests": 1.0,
+        "total": 0.3
       },
       "style": "hardcoded",
       "task_id": "feature-schema-a",
@@ -675,7 +678,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",
@@ -919,19 +922,20 @@
     {
       "candidate": "hardcoded",
       "checks": {
-        "causal": false,
+        "causal": true,
         "functional": false,
         "interface": true,
-        "persistence": false,
+        "persistence": true,
         "protected": true,
-        "public_tests": false
+        "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-2rlqxt58/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
-        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "hidden_rmse": 13.961255232574215,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
         "surface_changes": []
       },
-      "failure_class": "public_regression",
+      "failure_class": "functional_failure",
       "passed": false,
       "quality": {
         "checks": {},
@@ -944,8 +948,8 @@
         "interface": 1.0,
         "persistence": 0.0,
         "protected": 1.0,
-        "public_tests": 0.0,
-        "total": 0.2
+        "public_tests": 1.0,
+        "total": 0.3
       },
       "style": "hardcoded",
       "task_id": "feature-schema-a",
@@ -962,7 +966,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",

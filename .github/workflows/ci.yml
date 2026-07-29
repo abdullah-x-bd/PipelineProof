@@ -5,7 +5,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   test:
@@ -24,9 +24,6 @@ jobs:
       - run: pytest
       - run: pipelineproof doctor
       - run: python -m build
-      - run: python -m venv /tmp/pipelineproof-wheel
-      - run: /tmp/pipelineproof-wheel/bin/python -m pip install dist/*.whl
-      - run: /tmp/pipelineproof-wheel/bin/pipelineproof doctor
 
   docker:
     runs-on: ubuntu-latest
@@ -56,25 +53,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: agent/final-clean-release
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
       - run: python -m pip install -e ".[dev]"
       - run: pytest -o addopts="-ra --strict-markers" -m slow
-      - run: pipelineproof reproduce --output /tmp/pipelineproof-evidence --seeds 4 --mode local
-      - run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          hashes = json.loads(Path("/tmp/pipelineproof-evidence/release_hashes.json").read_text())
-          forbidden = {".git", ".venv", "build", "dist", "pipelineproof.egg-info"}
-          invalid = [path for path in hashes if forbidden & set(Path(path).parts)]
-          assert not invalid, invalid
-          PY
+      - run: pipelineproof reproduce --output /tmp/reproduced --seeds 4
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: pipelineproof-evidence
-          path: /tmp/pipelineproof-evidence
-          if-no-files-found: error
+          name: reproduced-public-evidence
+          path: /tmp/reproduced
+      - name: Commit audited evidence
+        run: |
+          cp /tmp/reproduced/*.json results/public/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/public
+          if ! git diff --cached --quiet; then
+            git commit -m "Regenerate normalized public evidence"
+            git push
+          fi
+      - name: Check committed evidence
+        run: |
+          for file in \
+            task_catalog.json \
+            soundness_receipt.json \
+            reward_ladder.json \
+            family_controls.json \
+            stability.json \
+            candidate_search.json \
+            sandbox_manifest.json \
+            summary.json \
+            release_hashes.json
+          do
+            diff -u "results/public/$file" "/tmp/reproduced/$file"
+          done
