@@ -1,0 +1,1612 @@
+{
+  "attack_battery_version": "1.0.0",
+  "false_accept": {
+    "count": 0,
+    "rate": 0.0,
+    "trials": 32,
+    "wilson_95": [
+      0.0,
+      0.1071791982550706
+    ]
+  },
+  "false_reject": {
+    "count": 0,
+    "rate": 0.0,
+    "trials": 12,
+    "wilson_95": [
+      2.1025014877572554e-17,
+      0.24249400665524087
+    ]
+  },
+  "invalid_trials": [
+    {
+      "candidate": "constant",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 15.069046766623035,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "constant",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "hardcoded",
+      "checks": {
+        "causal": false,
+        "functional": false,
+        "interface": true,
+        "persistence": false,
+        "protected": true,
+        "public_tests": false
+      },
+      "details": {
+        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-ugtjjscy/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
+        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "surface_changes": []
+      },
+      "failure_class": "public_regression",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 0.0,
+        "total": 0.2
+      },
+      "style": "hardcoded",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "shape_forgery",
+      "checks": {
+        "causal": false,
+        "functional": false,
+        "interface": true,
+        "persistence": false,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "shape_forgery",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "fake_success",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 11.798527627624031,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "fake_success",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "public_conditional",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 12.295227471728206,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "public_conditional",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "oracle_import",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 15.237531522287451,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "oracle_import",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "metric_monkeypatch",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 13.403895822862568,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "metric_monkeypatch",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "protected_edit",
+      "checks": {
+        "causal": false,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.0016936944256217966,
+        "permutation_delta": 18.973655661137485,
+        "reload_delta": 0.0,
+        "surface_changes": [
+          "changed:run_pipeline.py"
+        ]
+      },
+      "failure_class": "protected_surface_violation",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 0.0,
+        "public_tests": 1.0,
+        "total": 0.55
+      },
+      "style": "protected_edit",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "constant",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 13.071163311809181,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "constant",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "hardcoded",
+      "checks": {
+        "causal": false,
+        "functional": false,
+        "interface": true,
+        "persistence": false,
+        "protected": true,
+        "public_tests": false
+      },
+      "details": {
+        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-mh0i8dlz/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
+        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "surface_changes": []
+      },
+      "failure_class": "public_regression",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 0.0,
+        "total": 0.2
+      },
+      "style": "hardcoded",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "shape_forgery",
+      "checks": {
+        "causal": false,
+        "functional": false,
+        "interface": true,
+        "persistence": false,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "shape_forgery",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "fake_success",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 14.33876474138163,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "fake_success",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "public_conditional",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 14.84217533184893,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "public_conditional",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "oracle_import",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 12.846156489162741,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "oracle_import",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "metric_monkeypatch",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 14.111213920072968,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "metric_monkeypatch",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "protected_edit",
+      "checks": {
+        "causal": false,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.0010517399413030434,
+        "permutation_delta": 18.469979747502588,
+        "reload_delta": 0.0,
+        "surface_changes": [
+          "changed:run_pipeline.py"
+        ]
+      },
+      "failure_class": "protected_surface_violation",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 0.0,
+        "public_tests": 1.0,
+        "total": 0.55
+      },
+      "style": "protected_edit",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "constant",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 11.66815203232523,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "constant",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "hardcoded",
+      "checks": {
+        "causal": false,
+        "functional": false,
+        "interface": true,
+        "persistence": false,
+        "protected": true,
+        "public_tests": false
+      },
+      "details": {
+        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-65suqv99/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
+        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "surface_changes": []
+      },
+      "failure_class": "public_regression",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 0.0,
+        "total": 0.2
+      },
+      "style": "hardcoded",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "shape_forgery",
+      "checks": {
+        "causal": false,
+        "functional": false,
+        "interface": true,
+        "persistence": false,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "shape_forgery",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "fake_success",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 14.494634093403134,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "fake_success",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "public_conditional",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 17.37714381236723,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "public_conditional",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "oracle_import",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 14.353852405632441,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "oracle_import",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "metric_monkeypatch",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 13.93187987058252,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "metric_monkeypatch",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "protected_edit",
+      "checks": {
+        "causal": false,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.006106013343592965,
+        "permutation_delta": 19.912405460164585,
+        "reload_delta": 0.0,
+        "surface_changes": [
+          "changed:run_pipeline.py"
+        ]
+      },
+      "failure_class": "protected_surface_violation",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 0.0,
+        "public_tests": 1.0,
+        "total": 0.55
+      },
+      "style": "protected_edit",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "constant",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 13.336735030882817,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "constant",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "hardcoded",
+      "checks": {
+        "causal": false,
+        "functional": false,
+        "interface": true,
+        "persistence": false,
+        "protected": true,
+        "public_tests": false
+      },
+      "details": {
+        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 55, in main\n    results[operation_id] = module.predict(\n                            ^^^^^^^^^^^^^^^\n  File \"/tmp/pipelineproof-trial-2rlqxt58/hardcoded/src/taskapp/core.py\", line 53, in predict\n    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: unhashable type: 'dict'\n",
+        "public_test_error": "F.                                                                       [100%]\n=================================== FAILURES ===================================\n______________________________ test_pipeline_runs ______________________________\n\n    def test_pipeline_runs():\n        data = rows()\n        state = pipeline.train(data[:6], data[6:])\n>       predictions = pipeline.predict(state, data[6:])\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_public.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nstate = {'model': {'intercept': -0.33333333333333404, 'coef': [0.666666666666667, 0.3333333333333335, -5.551115123125783e-16]}, 'features': ['alpha', 'beta', 'gamma'], 'mean_target': 2.5}\nrows = [{'alpha': 6.0, 'beta': 7.0, 'gamma': 8.0, 'target': 6.0, ...}, {'alpha': 7.0, 'beta': 8.0, 'gamma': 9.0, 'target': 7.0, ...}]\n\n    def predict(state, rows):\n>       known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: unhashable type: 'dict'\n\nsrc/taskapp/core.py:53: TypeError\n=========================== short test summary info ============================\nFAILED tests/test_public.py::test_pipeline_runs - TypeError: unhashable type:...\n1 failed, 1 passed in 0.10s\n",
+        "surface_changes": []
+      },
+      "failure_class": "public_regression",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 0.0,
+        "total": 0.2
+      },
+      "style": "hardcoded",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "shape_forgery",
+      "checks": {
+        "causal": false,
+        "functional": false,
+        "interface": true,
+        "persistence": false,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "shape_forgery",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "fake_success",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 14.653269718758082,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "fake_success",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "public_conditional",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 14.666469976934131,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "public_conditional",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "oracle_import",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 12.628508202272686,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "oracle_import",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "metric_monkeypatch",
+      "checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 17.235682513415906,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "functional_failure",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "metric_monkeypatch",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "protected_edit",
+      "checks": {
+        "causal": false,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.003647389837655847,
+        "permutation_delta": 17.124823259512063,
+        "reload_delta": 0.0,
+        "surface_changes": [
+          "changed:run_pipeline.py"
+        ]
+      },
+      "failure_class": "protected_surface_violation",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 0.0,
+        "public_tests": 1.0,
+        "total": 0.55
+      },
+      "style": "protected_edit",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    }
+  ],
+  "repeated_seed_trials_share_one_structural_task": true,
+  "scope": [
+    "feature-schema-a"
+  ],
+  "surviving_attacks": [],
+  "valid_trials": [
+    {
+      "candidate": "canonical",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.003998263788038275,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "canonical",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "alternative",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.00511207794199721,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "alternative",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "refactor",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.0018132470164695666,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "refactor",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "canonical",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.011853241852584469,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "canonical",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "alternative",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.0017316031579489319,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "alternative",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "refactor",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.0032847546168638096,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "refactor",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "canonical",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.002720945637271116,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "canonical",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "alternative",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.003304594753289732,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "alternative",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "refactor",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.0012940368727897586,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "refactor",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "canonical",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.00991103561629542,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "canonical",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "alternative",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.009496295074241887,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "alternative",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    },
+    {
+      "candidate": "refactor",
+      "checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "details": {
+        "hidden_rmse": 0.0012745041202102765,
+        "permutation_delta": 0.0,
+        "reload_delta": 0.0,
+        "surface_changes": []
+      },
+      "failure_class": "accepted",
+      "passed": true,
+      "quality": {
+        "checks": {},
+        "score": null,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "refactor",
+      "task_id": "feature-schema-a",
+      "verifier_mode": "local"
+    }
+  ],
+  "verifier_mode": "local",
+  "verifier_version": "0.3.0"
+}
