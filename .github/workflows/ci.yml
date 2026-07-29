@@ -29,7 +29,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e ".[dev]"
       - run: docker build -f docker/task.Dockerfile -t pipelineproof-task:0.3.0 .
+      - run: pipelineproof generate --output /tmp/pipelineproof-tasks
+      - run: pipelineproof verify --task feature-schema-a --candidate controls/feature-schema-a/canonical --mode docker > /tmp/correct.json
+      - run: pipelineproof verify --task feature-schema-a --candidate /tmp/pipelineproof-tasks/feature-schema-a --mode docker > /tmp/broken.json
+      - run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          correct = json.loads(Path("/tmp/correct.json").read_text())
+          broken = json.loads(Path("/tmp/broken.json").read_text())
+          assert correct["passed"] is True
+          assert broken["passed"] is False
+          PY
 
   evidence:
     runs-on: ubuntu-latest
