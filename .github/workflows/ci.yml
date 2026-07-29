@@ -59,3 +59,24 @@ jobs:
           cache: pip
       - run: python -m pip install -e ".[dev]"
       - run: pytest -o addopts="-ra --strict-markers" -m slow
+      - run: pipelineproof reproduce --output /tmp/reproduced --seeds 4
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reproduced-public-evidence
+          path: /tmp/reproduced
+      - name: Check committed evidence
+        run: |
+          for file in \
+            task_catalog.json \
+            soundness_receipt.json \
+            reward_ladder.json \
+            family_controls.json \
+            stability.json \
+            candidate_search.json \
+            sandbox_manifest.json \
+            summary.json \
+            release_hashes.json
+          do
+            diff -u "results/public/$file" "/tmp/reproduced/$file"
+          done
