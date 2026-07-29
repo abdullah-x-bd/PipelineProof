@@ -102,7 +102,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",
@@ -280,8 +280,8 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0016936944256217966,
-        "permutation_delta": 18.973655661137485,
+        "hidden_rmse": 0.0016936944256245887,
+        "permutation_delta": 18.9736556611375,
         "reload_delta": 0.0,
         "surface_changes": [
           "changed:run_pipeline.py"
@@ -390,7 +390,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",
@@ -568,8 +568,8 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0010517399413030434,
-        "permutation_delta": 18.469979747502588,
+        "hidden_rmse": 0.0010517399413060911,
+        "permutation_delta": 18.46997974750259,
         "reload_delta": 0.0,
         "surface_changes": [
           "changed:run_pipeline.py"
@@ -678,7 +678,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",
@@ -856,8 +856,8 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.006106013343592965,
-        "permutation_delta": 19.912405460164585,
+        "hidden_rmse": 0.006106013343613151,
+        "permutation_delta": 19.912405460164564,
         "reload_delta": 0.0,
         "surface_changes": [
           "changed:run_pipeline.py"
@@ -966,7 +966,7 @@
         "public_tests": true
       },
       "details": {
-        "execution_error": "RuntimeError: Traceback (most recent call last):\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 75, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/runner/work/PipelineProof/PipelineProof/src/pipelineproof/_worker.py\", line 70, in main\n    output.write_text(json.dumps(results, allow_nan=False), encoding=\"utf-8\")\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/__init__.py\", line 238, in dumps\n    **kw).encode(obj)\n          ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 200, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.15/x64/lib/python3.11/json/encoder.py\", line 258, in iterencode\n    return _iterencode(o, 0)\n           ^^^^^^^^^^^^^^^^^\nValueError: Out of range float values are not JSON compliant\n",
+        "execution_error": "ValueError: Out of range float values are not JSON compliant",
         "surface_changes": []
       },
       "failure_class": "functional_failure",
@@ -1144,8 +1144,8 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.003647389837655847,
-        "permutation_delta": 17.124823259512063,
+        "hidden_rmse": 0.0036473898376600984,
+        "permutation_delta": 17.12482325951206,
         "reload_delta": 0.0,
         "surface_changes": [
           "changed:run_pipeline.py"
@@ -1189,7 +1189,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.003998263788038275,
+        "hidden_rmse": 0.0039982637880375295,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1225,7 +1225,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.00511207794199721,
+        "hidden_rmse": 0.005112077941987927,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1261,7 +1261,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0018132470164695666,
+        "hidden_rmse": 0.001813247016466739,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1297,7 +1297,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.011853241852584469,
+        "hidden_rmse": 0.011853241852572104,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1333,7 +1333,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0017316031579489319,
+        "hidden_rmse": 0.00173160315794485,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1369,7 +1369,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0032847546168638096,
+        "hidden_rmse": 0.00328475461686174,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1405,7 +1405,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.002720945637271116,
+        "hidden_rmse": 0.0027209456372698317,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1441,7 +1441,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.003304594753289732,
+        "hidden_rmse": 0.0033045947532943016,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1477,7 +1477,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0012940368727897586,
+        "hidden_rmse": 0.0012940368727930051,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1513,7 +1513,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.00991103561629542,
+        "hidden_rmse": 0.009911035616301113,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1549,7 +1549,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.009496295074241887,
+        "hidden_rmse": 0.009496295074231392,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
@@ -1585,7 +1585,7 @@
         "public_tests": true
       },
       "details": {
-        "hidden_rmse": 0.0012745041202102765,
+        "hidden_rmse": 0.0012745041202120895,
         "permutation_delta": 0.0,
         "reload_delta": 0.0,
         "surface_changes": []
