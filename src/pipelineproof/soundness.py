@@ -203,16 +203,25 @@ def candidate_search(mode: str = "local") -> dict[str, Any]:
 
 
 def _hash_files(root: Path) -> dict[str, str]:
+    ignored_roots = {
+        ".git",
+        ".pytest_cache",
+        ".ruff_cache",
+        ".venv",
+        "build",
+        "dist",
+        "results",
+    }
     values = {}
     for path in sorted(root.rglob("*")):
         if not path.is_file() or "__pycache__" in path.parts or path.suffix == ".pyc":
-            continue
+  continue
         relative = path.relative_to(root).as_posix()
-        if relative.startswith("results/public/"):
-            continue
+        parts = Path(relative).parts
+        if parts[0] in ignored_roots or any(part.endswith(".egg-info") for part in parts):
+  continue
         values[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
     return values
-
 
 def reproduce(output: Path, mode: str = "local", seed_count: int = 4) -> dict[str, Any]:
     output.mkdir(parents=True, exist_ok=True)
