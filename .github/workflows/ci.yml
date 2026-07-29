@@ -54,7 +54,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: agent/final-normalized-release
+          ref: agent/final-clean-release
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
