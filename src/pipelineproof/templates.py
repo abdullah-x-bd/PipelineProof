@@ -81,7 +81,7 @@ def predict(state, rows):
     return [float(state["mean_target"])] * len(rows)
 ''',
         "hardcoded": '''def predict(state, rows):
-    known = {{(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}}
+    known = {(0.0, 0.0, 0.0): 1.5, (1.0, 1.0, 1.0): 4.0}
     output = []
     for row in rows:
         key = tuple(round(float(row[name]), 8) for name in FEATURES)
