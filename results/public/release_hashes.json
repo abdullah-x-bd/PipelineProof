@@ -1,8 +1,6 @@
 {
   ".dockerignore": "c5b3a9fe9ee76d3293c23b0d561bd2b807f136cb52ff740e1967266aee2d8abd",
-  ".evidence-trigger": "45442824edf7a78b00d80f4cd3503de99546aa25ef4a80d56479d392c5ee4f05",
-  ".github/workflows/ci.yml": "6c0fc575d4c3762ee78e54df9250ef16aabb0ebadb8cb1745c251ec8a2ae7258",
-  ".github/workflows/commit-evidence.yml": "7d7dbd61a228d8fb6a0612e8baeeccc186c5bcd11dd781874f66f703a4114f4a",
+  ".github/workflows/ci.yml": "f30e1ea6e83087f525c5b6dadedc18b262f6f580272cf26373231434d36a5d29",
   ".gitignore": "fd43e066323669146232d7f6d6f71b50825cd6daf09bc9c410afb09dfe4ac251",
   "Dockerfile": "4e612b1d9d47959a4100849e60778c3edfff8bc3416e4275a581356632458bc1",
   "Makefile": "6c8ac472fbf4f78755b1d082f52050d73bb9f48402848257522ed943c2bff2a1",
