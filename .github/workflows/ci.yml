@@ -5,7 +5,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   test:
@@ -53,6 +53,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: agent/harden-attack-battery
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -65,6 +67,16 @@ jobs:
         with:
           name: reproduced-public-evidence
           path: /tmp/reproduced
+      - name: Commit audited evidence
+        run: |
+          cp /tmp/reproduced/*.json results/public/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/public
+          if ! git diff --cached --quiet; then
+            git commit -m "Regenerate audited public evidence"
+            git push
+          fi
       - name: Check committed evidence
         run: |
           for file in \
