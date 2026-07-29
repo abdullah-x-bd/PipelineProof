@@ -45,8 +45,10 @@ jobs:
 
           correct = json.loads(Path("/tmp/correct.json").read_text())
           broken = json.loads(Path("/tmp/broken.json").read_text())
-          assert correct["passed"] is True
-          assert broken["passed"] is False
+          print("correct", json.dumps(correct, indent=2, sort_keys=True))
+          print("broken", json.dumps(broken, indent=2, sort_keys=True))
+          assert correct["passed"] is True, correct
+          assert broken["passed"] is False, broken
           PY
 
   evidence:
