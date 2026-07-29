@@ -1,13 +1,11 @@
 from __future__ import annotations
 
 import json
-import math
-import random
 from pathlib import Path
 
 import numpy as np
 
-FEATURES = ['alpha', 'beta', 'gamma']
+FEATURES = ["alpha", "beta", "gamma"]
 SEED = 1100
 
 
@@ -39,7 +37,6 @@ def load_state(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
-
 def train(train_rows, eval_rows=None):
     model = _fit_linear(_matrix(train_rows), _targets(train_rows))
     return {
@@ -53,11 +50,10 @@ def predict(state, rows):
     return _linear_predict(state["model"], _matrix(rows, state["features"]))
 
 
-
 def evaluate(state, train_rows, eval_rows):
     predictions = predict(state, eval_rows)
     errors = np.asarray(predictions) - _targets(eval_rows)
-    return {"rmse": float(np.sqrt(np.mean(errors ** 2)))}
+    return {"rmse": float(np.sqrt(np.mean(errors**2)))}
 
 
 def split(rows, ratio=0.75):
