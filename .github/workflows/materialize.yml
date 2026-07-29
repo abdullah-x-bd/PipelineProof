@@ -1,4 +1,4 @@
-name: Materialize release
+name: Materialize source
 
 on:
   push:
@@ -13,12 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Expand tested release
+      - name: Expand release source
         run: |
-          tar -xzf .pipelineproof-release.tar.gz
-          rm .pipelineproof-release.tar.gz
-          rm .github/workflows/materialize.yml
-      - name: Commit release tree
+          tar -xzf .pipelineproof-source.tar.gz
+          rm .pipelineproof-source.tar.gz
+      - name: Commit source tree
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
