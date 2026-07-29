@@ -5,7 +5,6 @@ from pathlib import Path
 
 from pipelineproof.schema import TaskSpec
 
-
 _FAMILIES = (
     "feature_schema",
     "preprocessing_eval",
