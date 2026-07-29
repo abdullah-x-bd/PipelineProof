@@ -215,13 +215,14 @@ def _hash_files(root: Path) -> dict[str, str]:
     values = {}
     for path in sorted(root.rglob("*")):
         if not path.is_file() or "__pycache__" in path.parts or path.suffix == ".pyc":
-  continue
+            continue
         relative = path.relative_to(root).as_posix()
         parts = Path(relative).parts
         if parts[0] in ignored_roots or any(part.endswith(".egg-info") for part in parts):
-  continue
+            continue
         values[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
     return values
+
 
 def reproduce(output: Path, mode: str = "local", seed_count: int = 4) -> dict[str, Any]:
     output.mkdir(parents=True, exist_ok=True)
