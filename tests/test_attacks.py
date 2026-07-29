@@ -1,10 +1,8 @@
 import pytest
-
 from pipelineproof.catalog import get_task
 from pipelineproof.soundness import ATTACKS
 from pipelineproof.templates import write_task
 from pipelineproof.verifier import verify_spec
-
 
 pytestmark = pytest.mark.slow
 
