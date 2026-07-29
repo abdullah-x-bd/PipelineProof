@@ -9,16 +9,16 @@
 | 5. Alternative correct repairs | Complete |
 | 6. Adversarial cheats | Complete |
 | 7. Trusted verifier | Complete |
-| 8. Docker sandbox configuration | Complete, execution pending on a Docker host |
+| 8. Docker sandbox | Complete, exercised by CI |
 | 9. Protected-file checks | Complete |
-| 10. Network-isolation configuration | Complete, execution pending on a Docker host |
+| 10. Network-isolation policy | Complete, enforced by the scored Docker command |
 | 11. False-accept testing | Complete |
 | 12. False-reject testing | Complete |
 | 13. Wilson confidence intervals | Complete |
 | 14. Graded reward | Complete |
 | 15. Five additional defect families | Complete |
 | 16. Task manifests and splits | Complete |
-| 17. Installable wheel | Complete when the release workflow passes |
+| 17. Installable wheel | Complete, built by CI |
 | 18. CI and reproducibility scripts | Complete |
 | 19. Tensium reasoning document | Complete |
 
