@@ -38,6 +38,7 @@
   "scripts/reproduce_local.sh": "e5c0f6feee17d8d44c0b1487fb09c9f06b2fb6a0b8eaa6864a98ce54291d2559",
   "scripts/verify_private_bundle.py": "881cda4d606a966fd1265bc6273f361c24b61828a05645066cfc35f97068db9c",
   "src/pipelineproof/__init__.py": "9eccb3d62f86fe019cf0cbb0dbb409c30ffb841a0ddf0b10f1b2a4a51eb3761b",
+  "src/pipelineproof/_version.py": "e364931a8afff672985ee99f795e6d8b20ff33c55d71d757ec211ec6689b3c19",
   "src/pipelineproof/_worker.py": "b3751c1d5927cc835a0348b3b2b7c9b888b2ea799ce65ec4119839c94524cca2",
   "src/pipelineproof/catalog.py": "b1e5d00c1b176fe4839598788671ebafc1e03c762db59624af3b4226d7855771",
   "src/pipelineproof/cli.py": "91fc0f7efbba1b13a2738a403d2a2ebc7d3562e7b50669ea226ca816dd3f93ce",
