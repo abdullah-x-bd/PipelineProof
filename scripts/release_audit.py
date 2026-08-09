@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import json
 import tomllib
 from pathlib import Path
@@ -26,7 +27,14 @@ REQUIRED_RELEASE_FILES = (
 )
 
 
+def _parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--evidence", type=Path)
+    return parser
+
+
 def main() -> int:
+    args = _parser().parse_args()
     root = Path(__file__).resolve().parents[1]
     errors: list[str] = []
 
@@ -43,25 +51,30 @@ def main() -> int:
     if __version__ != "0.4.0":
         errors.append(f"unexpected runtime version: {__version__}")
 
-    citation = (root / "CITATION.cff").read_text(encoding="utf-8") if (root / "CITATION.cff").is_file() else ""
+    citation = (
+        (root / "CITATION.cff").read_text(encoding="utf-8")
+        if (root / "CITATION.cff").is_file()
+        else ""
+    )
     if 'cff-version: "1.2.0"' not in citation:
         errors.append("CITATION.cff is not pinned to CFF 1.2.0")
     if 'version: "0.4.0"' not in citation:
         errors.append("CITATION.cff version does not match v0.4.0")
 
-    evidence_root = root / "results" / "public" / "v0.4.0"
+    evidence_root = (args.evidence or root / "results" / "public" / "v0.4.0").resolve()
     if evidence_root.is_dir():
         evidence = validate_evidence_bundle(evidence_root)
         if not evidence["valid"]:
             errors.extend(f"evidence: {error}" for error in evidence["errors"])
     else:
-        errors.append("committed v0.4.0 evidence directory is missing")
+        errors.append(f"evidence directory is missing: {evidence_root}")
         evidence = {"valid": False}
 
     payload = {
         "valid": not errors,
         "version": __version__,
         "required_release_files": len(REQUIRED_RELEASE_FILES),
+        "evidence_root": str(evidence_root),
         "evidence_valid": evidence.get("valid", False),
         "errors": errors,
     }
