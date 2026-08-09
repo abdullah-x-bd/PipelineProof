@@ -4,6 +4,10 @@ on:
   push:
   pull_request:
 
+concurrency:
+  group: pipelineproof-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -28,6 +32,7 @@ jobs:
       - run: python -m venv /tmp/pipelineproof-wheel
       - run: /tmp/pipelineproof-wheel/bin/python -m pip install dist/*.whl
       - run: /tmp/pipelineproof-wheel/bin/pipelineproof doctor
+      - run: /tmp/pipelineproof-wheel/bin/pipelineproof --version
 
   docker-smoke:
     runs-on: ubuntu-latest
@@ -38,7 +43,7 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: python -m pip install -e ".[dev]"
-      - run: docker build -f docker/task.Dockerfile -t pipelineproof-task:0.3.0 .
+      - run: docker build -f docker/task.Dockerfile -t pipelineproof-task:0.4.0 .
       - run: pipelineproof generate --output /tmp/pipelineproof-tasks
       - run: pipelineproof verify --task feature-schema-a --candidate controls/feature-schema-a/canonical --mode docker > /tmp/correct.json
       - run: pipelineproof verify --task feature-schema-a --candidate /tmp/pipelineproof-tasks/feature-schema-a --mode docker > /tmp/broken.json
@@ -66,29 +71,8 @@ jobs:
       - run: pipelineproof reproduce --output /tmp/pipelineproof-evidence-local --seeds 4 --mode local
         env:
           PIPELINEPROOF_SOURCE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
-      - run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          root = Path("/tmp/pipelineproof-evidence-local")
-          summary = json.loads((root / "summary.json").read_text())
-          attack = json.loads((root / "attack_matrix.json").read_text())
-          repairs = json.loads((root / "valid_repair_matrix.json").read_text())
-
-          assert summary["structural_attack_cells"] == 13, summary
-          assert summary["structural_valid_control_cells"] == 18, summary
-          assert summary["invalid_attack_trials"] == 0, summary
-          assert summary["false_accepts"] == 0, summary
-          assert summary["false_rejects"] == 0, summary
-          assert summary["reward_ladder_strictly_monotonic"] is True, summary
-          assert len(attack) == 13, len(attack)
-          assert all(row["invalid_trials"] == 0 for row in attack), attack
-          assert all(row["false_accepts"] == 0 for row in attack), attack
-          assert all(row["other_rejections"] == 0 for row in attack), attack
-          assert len(repairs) == 18, len(repairs)
-          assert all(row["all_accepted"] for row in repairs), repairs
-          PY
+      - run: pipelineproof evidence-manifest --input /tmp/pipelineproof-evidence-local
+      - run: pipelineproof validate-evidence --input /tmp/pipelineproof-evidence-local --allow-local
       - uses: actions/upload-artifact@v4
         with:
           name: pipelineproof-evidence-local
@@ -105,13 +89,13 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: python -m pip install -e ".[dev]"
-      - run: docker build -f docker/task.Dockerfile -t pipelineproof-task:0.3.0 .
+      - run: docker build -f docker/task.Dockerfile -t pipelineproof-task:0.4.0 .
       - run: pipelineproof reproduce --output /tmp/pipelineproof-evidence-docker --seeds 4 --mode docker
         env:
           PIPELINEPROOF_SOURCE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
       - name: Record Docker image identity
         run: |
-          IMAGE_ID="$(docker image inspect pipelineproof-task:0.3.0 --format '{{.Id}}')"
+          IMAGE_ID="$(docker image inspect pipelineproof-task:0.4.0 --format '{{.Id}}')"
           python - "$IMAGE_ID" <<'PY'
           import json
           import sys
@@ -122,45 +106,8 @@ jobs:
           payload["docker_image_id"] = sys.argv[1]
           path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
           PY
-      - run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          root = Path("/tmp/pipelineproof-evidence-docker")
-          summary = json.loads((root / "summary.json").read_text())
-          soundness = json.loads((root / "soundness_receipt.json").read_text())
-          parity = json.loads((root / "local_docker_parity.json").read_text())
-          attack = json.loads((root / "attack_matrix.json").read_text())
-          repairs = json.loads((root / "valid_repair_matrix.json").read_text())
-
-          assert summary["docker_executed"] is True, summary
-          assert summary["structural_attack_cells"] == 13, summary
-          assert summary["structural_valid_control_cells"] == 18, summary
-          assert summary["invalid_attack_trials"] == 0, summary
-          assert summary["false_accepts"] == 0, summary
-          assert summary["false_rejects"] == 0, summary
-          assert summary["reward_ladder_strictly_monotonic"] is True, summary
-          assert soundness["attack_evidence"]["clean_rejections"] == soundness["attack_evidence"]["valid_attack_trials"], soundness
-          assert soundness["attack_evidence"]["other_rejections"] == 0, soundness
-          assert parity["status"] == "complete", parity
-          assert parity["disagreement_count"] == 0, parity
-          assert len(attack) == 13, len(attack)
-          assert all(row["invalid_trials"] == 0 for row in attack), attack
-          assert all(row["false_accepts"] == 0 for row in attack), attack
-          assert len(repairs) == 18, len(repairs)
-          assert all(row["all_accepted"] for row in repairs), repairs
-          PY
-      - run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          hashes = json.loads(Path("/tmp/pipelineproof-evidence-docker/release_hashes.json").read_text())
-          forbidden = {".git", ".venv", "build", "dist", "pipelineproof.egg-info", "results"}
-          invalid = [path for path in hashes if forbidden & set(Path(path).parts)]
-          assert not invalid, invalid
-          PY
+      - run: pipelineproof evidence-manifest --input /tmp/pipelineproof-evidence-docker
+      - run: pipelineproof validate-evidence --input /tmp/pipelineproof-evidence-docker
       - uses: actions/upload-artifact@v4
         with:
           name: pipelineproof-evidence-docker
@@ -190,6 +137,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Canonical evidence already matches the validated artifact."
           else
-            git commit -m "Record v0.4 canonical Docker evidence"
+            git commit -m "Record v0.4 canonical Docker evidence [skip ci]"
             git push origin HEAD:${{ github.head_ref }}
           fi
