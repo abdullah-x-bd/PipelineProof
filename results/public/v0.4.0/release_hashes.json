@@ -33,7 +33,7 @@
   "figures/attack_matrix.svg": "50635c8dec8abfe449aabf7a8424c6c85a5c8ac28fc0a30e0dd3117d6d64f1d8",
   "figures/reward_ladder.svg": "5d8741ce4088fc96260d1a6529d55036dc3cf07eac0c4b8ef9180df484198b9d",
   "figures/task_taxonomy.svg": "bb1135d72d8eb1271fc39cb92e4f101960e49f19b2dabb81ef559f6fc78d4f8c",
-  "pyproject.toml": "3f33155c2d2069cf4d4d157b96a0871a5de7c4170027382b990542150c1c5bf9",
+  "pyproject.toml": "d00c1a1fcf51c068a575f9786fdf2fd0505b69f0516a636e7be47588a9479cc0",
   "scripts/build_task_image.sh": "ab490d7f86ce35d91c82d919ebbb8a33f75a0456a7d80db7079718c5d1871a4d",
   "scripts/reproduce_local.sh": "e5c0f6feee17d8d44c0b1487fb09c9f06b2fb6a0b8eaa6864a98ce54291d2559",
   "scripts/verify_private_bundle.py": "881cda4d606a966fd1265bc6273f361c24b61828a05645066cfc35f97068db9c",
