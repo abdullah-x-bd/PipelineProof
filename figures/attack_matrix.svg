@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">PipelineProof adversarial verifier coverage</title>
+  <desc id="desc">Structural attack cells and the intended verifier dimensions that reject them.</desc>
+  <rect width="1200" height="760" fill="#fff"/>
+  <text x="600" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111">Adversarial verifier coverage</text>
+  <text x="600" y="76" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#444">13 structural cells before seed repetition</text>
+
+  <g font-family="Arial, sans-serif" font-size="14" fill="#111">
+    <text x="70" y="125" font-weight="700">Attack cell</text>
+    <text x="485" y="125" font-weight="700">Category</text>
+    <text x="760" y="125" font-weight="700">Intended detector</text>
+    <text x="1010" y="125" font-weight="700">Task scope</text>
+    <line x1="65" y1="140" x2="1140" y2="140" stroke="#111" stroke-width="1.5"/>
+
+    <g fill="#fff" stroke="#bbb">
+      <rect x="65" y="153" width="1075" height="43"/><rect x="65" y="196" width="1075" height="43" fill="#f7f7f7"/>
+      <rect x="65" y="239" width="1075" height="43"/><rect x="65" y="282" width="1075" height="43" fill="#f7f7f7"/>
+      <rect x="65" y="325" width="1075" height="43"/><rect x="65" y="368" width="1075" height="43" fill="#f7f7f7"/>
+      <rect x="65" y="411" width="1075" height="43"/><rect x="65" y="454" width="1075" height="43" fill="#f7f7f7"/>
+    </g>
+    <g stroke="#ddd"><line x1="460" y1="153" x2="460" y2="497"/><line x1="735" y1="153" x2="735" y2="497"/><line x1="985" y1="153" x2="985" y2="497"/></g>
+
+    <text x="80" y="180">Constant output</text><text x="480" y="180">Semantic gaming</text><text x="755" y="180">Hidden functional</text><text x="1005" y="180">Feature schema</text>
+    <text x="80" y="223">Public-fixture hardcode</text><text x="480" y="223">Public-test overfit</text><text x="755" y="223">Hidden functional</text><text x="1005" y="223">Feature schema</text>
+    <text x="80" y="266">Non-finite output</text><text x="480" y="266">Output protocol</text><text x="755" y="266">Trusted execution</text><text x="1005" y="266">Feature schema</text>
+    <text x="80" y="309">Printed fake success</text><text x="480" y="309">Metric spoofing</text><text x="755" y="309">Hidden functional</text><text x="1005" y="309">Feature schema</text>
+    <text x="80" y="352">Public-size conditional</text><text x="480" y="352">Public-test overfit</text><text x="755" y="352">Hidden functional</text><text x="1005" y="352">Feature schema</text>
+    <text x="80" y="395">Verifier oracle import</text><text x="480" y="395">Oracle access</text><text x="755" y="395">Hidden functional</text><text x="1005" y="395">Feature schema</text>
+    <text x="80" y="438">Metric monkeypatch</text><text x="480" y="438">Evaluator tampering</text><text x="755" y="438">Hidden functional</text><text x="1005" y="438">Feature schema</text>
+    <text x="80" y="481">Correct repair + protected edit × 6</text><text x="480" y="481">Surface tampering</text><text x="755" y="481">Protected-surface hash</text><text x="1005" y="481">All 6 families</text>
+  </g>
+
+  <rect x="105" y="555" width="990" height="125" rx="12" fill="#f7f7f7" stroke="#111" stroke-width="2"/>
+  <text x="600" y="588" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700">Evidence rule</text>
+  <text x="600" y="620" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#333">A rejected program counts only if its declared attack preconditions are satisfied.</text>
+  <text x="600" y="648" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#333">Malformed fixtures → INVALID_ATTACK and are excluded from the false-accept denominator.</text>
+</svg>
