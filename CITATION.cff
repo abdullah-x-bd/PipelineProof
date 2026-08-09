@@ -9,6 +9,7 @@ authors:
     family-names: "X"
 repository-code: "https://github.com/abdullah-x-bd/PipelineProof"
 url: "https://github.com/abdullah-x-bd/PipelineProof"
+license: "MIT"
 abstract: "PipelineProof is an execution-based benchmark and reinforcement-learning environment for repairing silent machine-learning pipeline integrity failures using held-back behavioural verification."
 keywords:
   - "machine learning"
