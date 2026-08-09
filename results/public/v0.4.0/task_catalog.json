@@ -1,0 +1,128 @@
+[
+  {
+    "family": "feature_schema",
+    "features": [
+      "alpha",
+      "beta",
+      "gamma"
+    ],
+    "protected_paths": [
+      "ISSUE.md",
+      "manifest.json",
+      "run_pipeline.py",
+      "tests/**",
+      "data/**"
+    ],
+    "split": "development",
+    "task_id": "feature-schema-a",
+    "variant": "a",
+    "writable_paths": [
+      "src/**"
+    ]
+  },
+  {
+    "family": "preprocessing_eval",
+    "features": [
+      "signal",
+      "context",
+      "reserve"
+    ],
+    "protected_paths": [
+      "ISSUE.md",
+      "manifest.json",
+      "run_pipeline.py",
+      "tests/**",
+      "data/**"
+    ],
+    "split": "development",
+    "task_id": "preprocessing-eval-a",
+    "variant": "a",
+    "writable_paths": [
+      "src/**"
+    ]
+  },
+  {
+    "family": "serialization",
+    "features": [
+      "mass",
+      "temperature",
+      "pressure"
+    ],
+    "protected_paths": [
+      "ISSUE.md",
+      "manifest.json",
+      "run_pipeline.py",
+      "tests/**",
+      "data/**"
+    ],
+    "split": "development",
+    "task_id": "serialization-a",
+    "variant": "a",
+    "writable_paths": [
+      "src/**"
+    ]
+  },
+  {
+    "family": "wrong_eval",
+    "features": [
+      "volume",
+      "density",
+      "viscosity"
+    ],
+    "protected_paths": [
+      "ISSUE.md",
+      "manifest.json",
+      "run_pipeline.py",
+      "tests/**",
+      "data/**"
+    ],
+    "split": "development",
+    "task_id": "wrong-eval-a",
+    "variant": "a",
+    "writable_paths": [
+      "src/**"
+    ]
+  },
+  {
+    "family": "group_leakage",
+    "features": [
+      "exposure",
+      "duration",
+      "intensity"
+    ],
+    "protected_paths": [
+      "ISSUE.md",
+      "manifest.json",
+      "run_pipeline.py",
+      "tests/**",
+      "data/**"
+    ],
+    "split": "development",
+    "task_id": "group-leakage-a",
+    "variant": "a",
+    "writable_paths": [
+      "src/**"
+    ]
+  },
+  {
+    "family": "target_leakage",
+    "features": [
+      "capacity",
+      "latency",
+      "load"
+    ],
+    "protected_paths": [
+      "ISSUE.md",
+      "manifest.json",
+      "run_pipeline.py",
+      "tests/**",
+      "data/**"
+    ],
+    "split": "development",
+    "task_id": "target-leakage-a",
+    "variant": "a",
+    "writable_paths": [
+      "src/**"
+    ]
+  }
+]

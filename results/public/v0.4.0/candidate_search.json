@@ -1,0 +1,30 @@
+{
+  "curve": [
+    {
+      "budget": 1,
+      "independent_quality": 0.0,
+      "reward": 0.1,
+      "selected_style": "syntax_error"
+    },
+    {
+      "budget": 2,
+      "independent_quality": 0.4,
+      "reward": 0.3,
+      "selected_style": "fake_success"
+    },
+    {
+      "budget": 4,
+      "independent_quality": 0.6,
+      "reward": 0.65,
+      "selected_style": "broken"
+    },
+    {
+      "budget": 8,
+      "independent_quality": 1.0,
+      "reward": 1.0,
+      "selected_style": "canonical"
+    }
+  ],
+  "kind": "deterministic labelled-candidate search",
+  "not_a_model_best_of_n_experiment": true
+}

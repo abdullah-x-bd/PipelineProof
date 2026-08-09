@@ -1,0 +1,123 @@
+{
+  "gating": "causal and persistence contribute only when functional is true",
+  "levels": [
+    {
+      "label": "invalid interface",
+      "passed": false,
+      "quality": {
+        "checks": {},
+        "error": "SyntaxError: invalid syntax",
+        "score": 0.0,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 0.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 0.0,
+        "total": 0.1
+      },
+      "style": "syntax_error"
+    },
+    {
+      "label": "format-only success",
+      "passed": false,
+      "quality": {
+        "checks": {
+          "all_rotations": true,
+          "extreme_accuracy": false
+        },
+        "score": 0.4,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 0.0,
+        "interface": 1.0,
+        "persistence": 0.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.3
+      },
+      "style": "fake_success"
+    },
+    {
+      "label": "unrepaired repository",
+      "passed": false,
+      "quality": {
+        "checks": {
+          "all_rotations": false,
+          "extreme_accuracy": true
+        },
+        "score": 0.6,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 0.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 0.65
+      },
+      "style": "broken"
+    },
+    {
+      "label": "correct repair with protected edit",
+      "passed": false,
+      "quality": {
+        "checks": {
+          "all_rotations": true,
+          "extreme_accuracy": true
+        },
+        "score": 1.0,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 0.0,
+        "public_tests": 1.0,
+        "total": 0.9
+      },
+      "style": "correct_protected_edit"
+    },
+    {
+      "label": "complete repair",
+      "passed": true,
+      "quality": {
+        "checks": {
+          "all_rotations": true,
+          "extreme_accuracy": true
+        },
+        "score": 1.0,
+        "task_id": "feature-schema-a"
+      },
+      "reward": {
+        "causal": 1.0,
+        "functional": 1.0,
+        "interface": 1.0,
+        "persistence": 1.0,
+        "protected": 1.0,
+        "public_tests": 1.0,
+        "total": 1.0
+      },
+      "style": "canonical"
+    }
+  ],
+  "strictly_monotonic": true,
+  "task_id": "feature-schema-a",
+  "weights": {
+    "causal": 0.35,
+    "functional": 0.25,
+    "interface": 0.1,
+    "persistence": 0.1,
+    "protected": 0.1,
+    "public_tests": 0.1
+  }
+}

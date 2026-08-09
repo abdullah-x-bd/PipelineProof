@@ -1,0 +1,23 @@
+{
+  "accepted_valid_controls": 18,
+  "broken_tasks": 6,
+  "docker_executed": true,
+  "false_accept_trials": 52,
+  "false_accepts": 0,
+  "false_reject_trials": 72,
+  "false_rejects": 0,
+  "families": 6,
+  "frontier_model_panel": "not run",
+  "high_variance_cells": 0,
+  "invalid_attack_trials": 0,
+  "local_docker_disagreements": 0,
+  "local_docker_parity_status": "complete",
+  "model_best_of_n": "not run",
+  "rejected_broken_tasks": 6,
+  "reward_ladder_strictly_monotonic": true,
+  "structural_attack_cells": 13,
+  "structural_valid_control_cells": 18,
+  "task_count": 6,
+  "valid_attack_trials": 52,
+  "valid_controls": 18
+}

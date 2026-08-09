@@ -1,0 +1,6 @@
+label,style,total_reward,passed
+invalid interface,syntax_error,0.1,False
+format-only success,fake_success,0.3,False
+unrepaired repository,broken,0.65,False
+correct repair with protected edit,correct_protected_edit,0.9,False
+complete repair,canonical,1.0,True

@@ -1,0 +1,182 @@
+[
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "feature_schema",
+    "rejected": 0,
+    "repair_id": "feature-schema-a:canonical",
+    "seed_trials": 4,
+    "style": "canonical",
+    "task_id": "feature-schema-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "feature_schema",
+    "rejected": 0,
+    "repair_id": "feature-schema-a:alternative",
+    "seed_trials": 4,
+    "style": "alternative",
+    "task_id": "feature-schema-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "feature_schema",
+    "rejected": 0,
+    "repair_id": "feature-schema-a:refactor",
+    "seed_trials": 4,
+    "style": "refactor",
+    "task_id": "feature-schema-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "preprocessing_eval",
+    "rejected": 0,
+    "repair_id": "preprocessing-eval-a:canonical",
+    "seed_trials": 4,
+    "style": "canonical",
+    "task_id": "preprocessing-eval-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "preprocessing_eval",
+    "rejected": 0,
+    "repair_id": "preprocessing-eval-a:alternative",
+    "seed_trials": 4,
+    "style": "alternative",
+    "task_id": "preprocessing-eval-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "preprocessing_eval",
+    "rejected": 0,
+    "repair_id": "preprocessing-eval-a:refactor",
+    "seed_trials": 4,
+    "style": "refactor",
+    "task_id": "preprocessing-eval-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "serialization",
+    "rejected": 0,
+    "repair_id": "serialization-a:canonical",
+    "seed_trials": 4,
+    "style": "canonical",
+    "task_id": "serialization-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "serialization",
+    "rejected": 0,
+    "repair_id": "serialization-a:alternative",
+    "seed_trials": 4,
+    "style": "alternative",
+    "task_id": "serialization-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "serialization",
+    "rejected": 0,
+    "repair_id": "serialization-a:refactor",
+    "seed_trials": 4,
+    "style": "refactor",
+    "task_id": "serialization-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "wrong_eval",
+    "rejected": 0,
+    "repair_id": "wrong-eval-a:canonical",
+    "seed_trials": 4,
+    "style": "canonical",
+    "task_id": "wrong-eval-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "wrong_eval",
+    "rejected": 0,
+    "repair_id": "wrong-eval-a:alternative",
+    "seed_trials": 4,
+    "style": "alternative",
+    "task_id": "wrong-eval-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "wrong_eval",
+    "rejected": 0,
+    "repair_id": "wrong-eval-a:refactor",
+    "seed_trials": 4,
+    "style": "refactor",
+    "task_id": "wrong-eval-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "group_leakage",
+    "rejected": 0,
+    "repair_id": "group-leakage-a:canonical",
+    "seed_trials": 4,
+    "style": "canonical",
+    "task_id": "group-leakage-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "group_leakage",
+    "rejected": 0,
+    "repair_id": "group-leakage-a:alternative",
+    "seed_trials": 4,
+    "style": "alternative",
+    "task_id": "group-leakage-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "group_leakage",
+    "rejected": 0,
+    "repair_id": "group-leakage-a:refactor",
+    "seed_trials": 4,
+    "style": "refactor",
+    "task_id": "group-leakage-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "target_leakage",
+    "rejected": 0,
+    "repair_id": "target-leakage-a:canonical",
+    "seed_trials": 4,
+    "style": "canonical",
+    "task_id": "target-leakage-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "target_leakage",
+    "rejected": 0,
+    "repair_id": "target-leakage-a:alternative",
+    "seed_trials": 4,
+    "style": "alternative",
+    "task_id": "target-leakage-a"
+  },
+  {
+    "accepted": 4,
+    "all_accepted": true,
+    "family": "target_leakage",
+    "rejected": 0,
+    "repair_id": "target-leakage-a:refactor",
+    "seed_trials": 4,
+    "style": "refactor",
+    "task_id": "target-leakage-a"
+  }
+]

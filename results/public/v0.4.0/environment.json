@@ -1,0 +1,44 @@
+{
+  "attack_battery_version": "2.0.0",
+  "docker_available": true,
+  "docker_image_id": "sha256:fdaa462cc8b2dbc14c70f29cf9420a3cd6f837d4cb25124eb7878f211e32afcf",
+  "evidence_schema_version": "0.4",
+  "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
+  "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]",
+  "requested_mode": "docker",
+  "sandbox": {
+    "canonical_scored_mode": "docker",
+    "docker": {
+      "candidate_mount": "read-only",
+      "capabilities": "dropped",
+      "cpu_limit": 1,
+      "image": "pipelineproof-task:0.3.0",
+      "memory_limit_mb": 512,
+      "mode": "docker",
+      "network": "none",
+      "no_new_privileges": true,
+      "output_limit_bytes": 1000000,
+      "process_limit": 64,
+      "root_filesystem": "read-only",
+      "scratch_mount": "read-write",
+      "tmpfs": "/tmp, noexec, nosuid, 64 MB",
+      "user": "65532:65532",
+      "wall_timeout_seconds": 30
+    },
+    "docker_available_during_run": true,
+    "local": {
+      "cpu_limit_seconds": 25,
+      "filesystem_isolation": false,
+      "memory_limit_mb": 1536,
+      "mode": "local",
+      "network_isolation": false,
+      "output_limit_bytes": 1000000,
+      "process_limit": 64,
+      "use": "development only",
+      "wall_timeout_seconds": 30
+    },
+    "local_mode_role": "development and debugging"
+  },
+  "seed_count": 4,
+  "source_commit": "0621117b853ddd2b94d324aa1a83076fa2dcd976"
+}
