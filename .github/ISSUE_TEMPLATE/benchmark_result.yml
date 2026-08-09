@@ -1,0 +1,50 @@
+name: Benchmark result or verifier case
+description: Report a model result, valid repair, attack, or verifier edge case
+title: "[Benchmark] "
+labels: []
+body:
+  - type: dropdown
+    id: case_type
+    attributes:
+      label: Case type
+      options:
+        - legitimate repair rejected
+        - adversarial candidate accepted
+        - new adversarial strategy
+        - task-family validity concern
+        - model evaluation result
+        - other benchmark behaviour
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: PipelineProof version or commit
+    validations:
+      required: true
+  - type: input
+    id: task
+    attributes:
+      label: Task ID or family
+      placeholder: "feature-schema-a"
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Include verifier output, relevant checks, seeds, and execution mode. Do not include credentials or private evaluation material.
+    validations:
+      required: true
+  - type: textarea
+    id: interpretation
+    attributes:
+      label: Why this matters
+      description: Explain which benchmark claim, verifier invariant, or evaluation conclusion is affected.
+    validations:
+      required: true
+  - type: checkboxes
+    id: empirical
+    attributes:
+      label: Result provenance
+      options:
+        - label: I have clearly distinguished real model-generated results from synthetic fixtures.
+          required: true

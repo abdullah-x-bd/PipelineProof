@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" viewBox="0 0 1200 660" role="img" aria-labelledby="title desc">
+  <title id="title">PipelineProof graded reward ladder</title>
+  <desc id="desc">Five benchmark states rise from an invalid interface at reward 0.10 through format-only success, unrepaired repository, correct repair with protected tampering, and complete repair at 1.00.</desc>
+  <rect width="1200" height="660" fill="#fff"/>
+  <text x="600" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111">Graded reward ladder</text>
+  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#444">Partial reward diagnoses progress; benchmark success still requires every verifier check</text>
+
+  <line x1="125" y1="540" x2="1100" y2="540" stroke="#111" stroke-width="2"/>
+  <line x1="125" y1="135" x2="125" y2="540" stroke="#111" stroke-width="2"/>
+  <text x="88" y="145" font-family="Arial, sans-serif" font-size="14" fill="#444">1.0</text>
+  <text x="88" y="345" font-family="Arial, sans-serif" font-size="14" fill="#444">0.5</text>
+  <text x="92" y="545" font-family="Arial, sans-serif" font-size="14" fill="#444">0.0</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="175" y="500" width="145" height="40" fill="#f7f7f7" stroke="#111"/><text x="248" y="490" text-anchor="middle" font-size="19" font-weight="700">0.10</text>
+    <text x="248" y="575" text-anchor="middle" font-size="14">Invalid</text><text x="248" y="594" text-anchor="middle" font-size="14">interface</text>
+
+    <rect x="365" y="420" width="145" height="120" fill="#fff" stroke="#111"/><text x="438" y="410" text-anchor="middle" font-size="19" font-weight="700">0.30</text>
+    <text x="438" y="575" text-anchor="middle" font-size="14">Format-only</text><text x="438" y="594" text-anchor="middle" font-size="14">success</text>
+
+    <rect x="555" y="280" width="145" height="260" fill="#f7f7f7" stroke="#111"/><text x="628" y="270" text-anchor="middle" font-size="19" font-weight="700">0.65</text>
+    <text x="628" y="575" text-anchor="middle" font-size="14">Unrepaired</text><text x="628" y="594" text-anchor="middle" font-size="14">repository</text>
+
+    <rect x="745" y="180" width="145" height="360" fill="#fff" stroke="#111"/><text x="818" y="170" text-anchor="middle" font-size="19" font-weight="700">0.90</text>
+    <text x="818" y="575" text-anchor="middle" font-size="14">Correct repair +</text><text x="818" y="594" text-anchor="middle" font-size="14">protected edit</text>
+
+    <rect x="935" y="140" width="145" height="400" fill="#f7f7f7" stroke="#111" stroke-width="2"/><text x="1008" y="130" text-anchor="middle" font-size="19" font-weight="700">1.00</text>
+    <text x="1008" y="575" text-anchor="middle" font-size="14" font-weight="700">Complete</text><text x="1008" y="594" text-anchor="middle" font-size="14" font-weight="700">repair</text>
+  </g>
+
+  <text x="600" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#444">Causal and persistence reward are gated on hidden functional correctness.</text>
+</svg>

@@ -4,11 +4,16 @@ on:
   push:
   pull_request:
 
+concurrency:
+  group: pipelineproof-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
   test:
+    name: unit-python-${{ matrix.python-version }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,8 +32,9 @@ jobs:
       - run: python -m venv /tmp/pipelineproof-wheel
       - run: /tmp/pipelineproof-wheel/bin/python -m pip install dist/*.whl
       - run: /tmp/pipelineproof-wheel/bin/pipelineproof doctor
+      - run: /tmp/pipelineproof-wheel/bin/pipelineproof --version
 
-  docker:
+  docker-smoke:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +43,7 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: python -m pip install -e ".[dev]"
-      - run: docker build -f docker/task.Dockerfile -t pipelineproof-task:0.3.0 .
+      - run: docker build -f docker/task.Dockerfile -t pipelineproof-task:0.4.0 .
       - run: pipelineproof generate --output /tmp/pipelineproof-tasks
       - run: pipelineproof verify --task feature-schema-a --candidate controls/feature-schema-a/canonical --mode docker > /tmp/correct.json
       - run: pipelineproof verify --task feature-schema-a --candidate /tmp/pipelineproof-tasks/feature-schema-a --mode docker > /tmp/broken.json
@@ -52,7 +58,7 @@ jobs:
           assert broken["passed"] is False, broken
           PY
 
-  evidence:
+  evidence-local:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -62,19 +68,96 @@ jobs:
           cache: pip
       - run: python -m pip install -e ".[dev]"
       - run: pytest -o addopts="-ra --strict-markers" -m slow
-      - run: pipelineproof reproduce --output /tmp/pipelineproof-evidence --seeds 4 --mode local
-      - run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          hashes = json.loads(Path("/tmp/pipelineproof-evidence/release_hashes.json").read_text())
-          forbidden = {".git", ".venv", "build", "dist", "pipelineproof.egg-info"}
-          invalid = [path for path in hashes if forbidden & set(Path(path).parts)]
-          assert not invalid, invalid
-          PY
+      - run: pipelineproof reproduce --output /tmp/pipelineproof-evidence-local --seeds 4 --mode local
+        env:
+          PIPELINEPROOF_SOURCE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+      - run: pipelineproof evidence-manifest --input /tmp/pipelineproof-evidence-local
+      - run: pipelineproof validate-evidence --input /tmp/pipelineproof-evidence-local --allow-local
       - uses: actions/upload-artifact@v4
         with:
-          name: pipelineproof-evidence
-          path: /tmp/pipelineproof-evidence
+          name: pipelineproof-evidence-local
+          path: /tmp/pipelineproof-evidence-local
           if-no-files-found: error
+
+  evidence-docker:
+    name: canonical-docker-evidence
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e ".[dev]"
+      - run: docker build -f docker/task.Dockerfile -t pipelineproof-task:0.4.0 .
+      - run: pipelineproof reproduce --output /tmp/pipelineproof-evidence-docker --seeds 4 --mode docker
+        env:
+          PIPELINEPROOF_SOURCE_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Record Docker image identity
+        run: |
+          IMAGE_ID="$(docker image inspect pipelineproof-task:0.4.0 --format '{{.Id}}')"
+          python - "$IMAGE_ID" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          path = Path("/tmp/pipelineproof-evidence-docker/environment.json")
+          payload = json.loads(path.read_text())
+          payload["docker_image_id"] = sys.argv[1]
+          path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+          PY
+      - run: pipelineproof evidence-manifest --input /tmp/pipelineproof-evidence-docker
+      - run: pipelineproof validate-evidence --input /tmp/pipelineproof-evidence-docker
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pipelineproof-evidence-docker
+          path: /tmp/pipelineproof-evidence-docker
+          if-no-files-found: error
+
+  release-audit:
+    name: research-release-audit
+    needs: evidence-docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e ".[dev]"
+      - uses: actions/download-artifact@v4
+        with:
+          name: pipelineproof-evidence-docker
+          path: /tmp/pipelineproof-evidence-docker
+      - run: pipelineproof model-report --input examples/model_rollouts.synthetic.jsonl --output /tmp/pipelineproof-model-report
+      - run: test -f /tmp/pipelineproof-model-report/model_panel.json
+      - run: test -f /tmp/pipelineproof-model-report/best_of_n.json
+      - run: test -f /tmp/pipelineproof-model-report/failure_breakdown.json
+      - run: python scripts/release_audit.py --evidence /tmp/pipelineproof-evidence-docker
+
+  commit-evidence:
+    name: persist-canonical-evidence
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    needs: [evidence-docker, release-audit]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: pipelineproof-evidence-docker
+          path: results/public/v0.4.0
+      - name: Commit validated evidence if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/public/v0.4.0
+          if git diff --cached --quiet; then
+            echo "Canonical evidence already matches the validated artifact."
+          else
+            git commit -m "Record v0.4 canonical Docker evidence [skip ci]"
+            git push origin HEAD:${{ github.head_ref }}
+          fi

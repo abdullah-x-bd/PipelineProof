@@ -1,4 +1,4 @@
+from pipelineproof._version import __version__
 from pipelineproof.environment import PipelineProofEnvironment, load_environment
 
-__all__ = ["PipelineProofEnvironment", "load_environment"]
-__version__ = "0.3.0"
+__all__ = ["PipelineProofEnvironment", "__version__", "load_environment"]

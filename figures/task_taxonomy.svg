@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">PipelineProof silent ML failure taxonomy</title>
+  <desc id="desc">Six benchmark families grouped by the hidden machine-learning integrity contract they violate.</desc>
+  <rect width="1200" height="720" fill="#fff"/>
+  <text x="600" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111">Six silent ML pipeline failure families</text>
+  <text x="600" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#444">Each broken repository can execute while violating a held-back behavioural contract</text>
+
+  <g font-family="Arial, sans-serif" fill="#111">
+    <rect x="70" y="125" width="325" height="170" rx="12" fill="#f7f7f7" stroke="#111" stroke-width="2"/>
+    <text x="232" y="162" text-anchor="middle" font-size="21" font-weight="700">Feature schema</text>
+    <text x="95" y="198" font-size="15">Failure</text><text x="155" y="198" font-size="15" fill="#444">ordering-dependent inference</text>
+    <text x="95" y="230" font-size="15">Hidden test</text><text x="174" y="230" font-size="15" fill="#444">key-order invariance</text>
+    <text x="95" y="262" font-size="15">Signal</text><text x="148" y="262" font-size="15" fill="#444">permutation delta</text>
+
+    <rect x="438" y="125" width="325" height="170" rx="12" fill="#fff" stroke="#111" stroke-width="2"/>
+    <text x="600" y="162" text-anchor="middle" font-size="21" font-weight="700">Preprocessing leakage</text>
+    <text x="463" y="198" font-size="15">Failure</text><text x="523" y="198" font-size="15" fill="#444">eval rows fit preprocessing</text>
+    <text x="463" y="230" font-size="15">Hidden test</text><text x="542" y="230" font-size="15" fill="#444">eval-set substitution</text>
+    <text x="463" y="262" font-size="15">Signal</text><text x="516" y="262" font-size="15" fill="#444">artifact invariance</text>
+
+    <rect x="806" y="125" width="325" height="170" rx="12" fill="#f7f7f7" stroke="#111" stroke-width="2"/>
+    <text x="968" y="162" text-anchor="middle" font-size="21" font-weight="700">Serialization state</text>
+    <text x="831" y="198" font-size="15">Failure</text><text x="891" y="198" font-size="15" fill="#444">transform state not persisted</text>
+    <text x="831" y="230" font-size="15">Hidden test</text><text x="910" y="230" font-size="15" fill="#444">batch composition</text>
+    <text x="831" y="262" font-size="15">Signal</text><text x="884" y="262" font-size="15" fill="#444">prediction stability</text>
+
+    <rect x="70" y="350" width="325" height="170" rx="12" fill="#fff" stroke="#111" stroke-width="2"/>
+    <text x="232" y="387" text-anchor="middle" font-size="21" font-weight="700">Wrong evaluation split</text>
+    <text x="95" y="423" font-size="15">Failure</text><text x="155" y="423" font-size="15" fill="#444">metric uses training rows</text>
+    <text x="95" y="455" font-size="15">Hidden test</text><text x="174" y="455" font-size="15" fill="#444">trusted held-out metric</text>
+    <text x="95" y="487" font-size="15">Signal</text><text x="148" y="487" font-size="15" fill="#444">metric agreement</text>
+
+    <rect x="438" y="350" width="325" height="170" rx="12" fill="#f7f7f7" stroke="#111" stroke-width="2"/>
+    <text x="600" y="387" text-anchor="middle" font-size="21" font-weight="700">Group leakage</text>
+    <text x="463" y="423" font-size="15">Failure</text><text x="523" y="423" font-size="15" fill="#444">related rows cross split</text>
+    <text x="463" y="455" font-size="15">Hidden test</text><text x="542" y="455" font-size="15" fill="#444">group-disjoint split</text>
+    <text x="463" y="487" font-size="15">Signal</text><text x="516" y="487" font-size="15" fill="#444">zero group overlap</text>
+
+    <rect x="806" y="350" width="325" height="170" rx="12" fill="#fff" stroke="#111" stroke-width="2"/>
+    <text x="968" y="387" text-anchor="middle" font-size="21" font-weight="700">Target leakage</text>
+    <text x="831" y="423" font-size="15">Failure</text><text x="891" y="423" font-size="15" fill="#444">target-derived feature used</text>
+    <text x="831" y="455" font-size="15">Hidden test</text><text x="910" y="455" font-size="15" fill="#444">metadata perturbation</text>
+    <text x="831" y="487" font-size="15">Signal</text><text x="884" y="487" font-size="15" fill="#444">prediction invariance</text>
+  </g>
+
+  <rect x="210" y="585" width="780" height="75" rx="10" fill="#fff" stroke="#777" stroke-dasharray="7 5"/>
+  <text x="600" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700">Shared benchmark contract</text>
+  <text x="600" y="643" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#444">public interface + hidden functional test + family-specific causal check + persistence + protected surface</text>
+</svg>

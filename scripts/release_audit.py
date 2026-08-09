@@ -1,0 +1,93 @@
+from __future__ import annotations
+
+import argparse
+import json
+import tomllib
+from pathlib import Path
+
+from pipelineproof import __version__
+from pipelineproof.evidence import validate_evidence_bundle
+
+REQUIRED_RELEASE_FILES = (
+    "README.md",
+    "CHANGELOG.md",
+    "CITATION.cff",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "SECURITY.md",
+    "docs/BENCHMARK_CARD.md",
+    "docs/TASK_TAXONOMY.md",
+    "docs/VERIFIER_SPEC.md",
+    "docs/REWARD_SPEC.md",
+    "docs/THREAT_MODEL.md",
+    "docs/MODEL_EVALUATION.md",
+    "docs/RELATED_WORK.md",
+    "docs/RELEASE_PROCESS.md",
+    "schemas/evidence-summary.schema.json",
+    "schemas/model-rollout.schema.json",
+)
+
+
+def _parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--evidence", type=Path)
+    return parser
+
+
+def main() -> int:
+    args = _parser().parse_args()
+    root = Path(__file__).resolve().parents[1]
+    errors: list[str] = []
+
+    missing = [path for path in REQUIRED_RELEASE_FILES if not (root / path).is_file()]
+    if missing:
+        errors.append(f"missing release files: {', '.join(missing)}")
+
+    pyproject = tomllib.loads((root / "pyproject.toml").read_text(encoding="utf-8"))
+    project = pyproject["project"]
+    if "version" in project:
+        errors.append("pyproject version must come from the centralized dynamic version")
+    dynamic = set(project.get("dynamic", []))
+    if "version" not in dynamic:
+        errors.append("pyproject does not declare a dynamic version")
+    if project.get("license") != "MIT":
+        errors.append("pyproject license is not MIT")
+    if __version__ != "0.4.0":
+        errors.append(f"unexpected runtime version: {__version__}")
+
+    citation = (
+        (root / "CITATION.cff").read_text(encoding="utf-8")
+        if (root / "CITATION.cff").is_file()
+        else ""
+    )
+    if 'cff-version: "1.2.0"' not in citation:
+        errors.append("CITATION.cff is not pinned to CFF 1.2.0")
+    if 'version: "0.4.0"' not in citation:
+        errors.append("CITATION.cff version does not match v0.4.0")
+    if 'license: "MIT"' not in citation:
+        errors.append("CITATION.cff license does not match the repository license")
+
+    evidence_root = (args.evidence or root / "results" / "public" / "v0.4.0").resolve()
+    if evidence_root.is_dir():
+        evidence = validate_evidence_bundle(evidence_root)
+        if not evidence["valid"]:
+            errors.extend(f"evidence: {error}" for error in evidence["errors"])
+    else:
+        errors.append(f"evidence directory is missing: {evidence_root}")
+        evidence = {"valid": False}
+
+    payload = {
+        "valid": not errors,
+        "version": __version__,
+        "license": project.get("license"),
+        "required_release_files": len(REQUIRED_RELEASE_FILES),
+        "evidence_root": str(evidence_root),
+        "evidence_valid": evidence.get("valid", False),
+        "errors": errors,
+    }
+    print(json.dumps(payload, indent=2, sort_keys=True))
+    return 0 if payload["valid"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

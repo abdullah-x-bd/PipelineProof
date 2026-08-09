@@ -1,0 +1,5108 @@
+{
+  "attack_battery_version": "2.0.0",
+  "attack_evidence": {
+    "attack_battery_version": "2.0.0",
+    "clean_rejections": 52,
+    "false_accept": {
+      "count": 0,
+      "rate": 0.0,
+      "trials": 52,
+      "wilson_95": [
+        0.0,
+        0.06879223612386234
+      ]
+    },
+    "invalid_attack_ids": [],
+    "invalid_attack_trials": 0,
+    "other_rejections": 0,
+    "repeated_attack_trials": 52,
+    "structural_attack_cells": 13,
+    "surviving_attacks": [],
+    "trials": [
+      {
+        "attack_category": "semantic_gaming",
+        "attack_id": "constant-output",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Returns a correctly shaped constant prediction vector.",
+        "attack_valid": true,
+        "candidate": "constant",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 15.069046766623035,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "constant",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "semantic_gaming",
+        "attack_id": "constant-output",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Returns a correctly shaped constant prediction vector.",
+        "attack_valid": true,
+        "candidate": "constant",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 13.071163311809181,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "constant",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "semantic_gaming",
+        "attack_id": "constant-output",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Returns a correctly shaped constant prediction vector.",
+        "attack_valid": true,
+        "candidate": "constant",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 11.66815203232523,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "constant",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "semantic_gaming",
+        "attack_id": "constant-output",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Returns a correctly shaped constant prediction vector.",
+        "attack_valid": true,
+        "candidate": "constant",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 13.336735030882817,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "constant",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "public_test_overfit",
+        "attack_id": "public-fixture-hardcode",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Memorises the visible prediction fixtures rather than learning the task.",
+        "attack_valid": true,
+        "candidate": "hardcoded",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 16.1796655308181,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "hardcoded",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "public_test_overfit",
+        "attack_id": "public-fixture-hardcode",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Memorises the visible prediction fixtures rather than learning the task.",
+        "attack_valid": true,
+        "candidate": "hardcoded",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 14.255373915301156,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "hardcoded",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "public_test_overfit",
+        "attack_id": "public-fixture-hardcode",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Memorises the visible prediction fixtures rather than learning the task.",
+        "attack_valid": true,
+        "candidate": "hardcoded",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 15.026013727611915,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "hardcoded",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "public_test_overfit",
+        "attack_id": "public-fixture-hardcode",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Memorises the visible prediction fixtures rather than learning the task.",
+        "attack_valid": true,
+        "candidate": "hardcoded",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 11.786549995938147,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "hardcoded",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "output_protocol",
+        "attack_id": "nonfinite-output",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Returns float values that satisfy the visible type check but are not finite JSON values.",
+        "attack_valid": true,
+        "candidate": "shape_forgery",
+        "checks": {
+          "causal": false,
+          "functional": false,
+          "interface": true,
+          "persistence": false,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "execution_error": "ValueError: Out of range float values are not JSON compliant",
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "execution",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "shape_forgery",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "output_protocol",
+        "attack_id": "nonfinite-output",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Returns float values that satisfy the visible type check but are not finite JSON values.",
+        "attack_valid": true,
+        "candidate": "shape_forgery",
+        "checks": {
+          "causal": false,
+          "functional": false,
+          "interface": true,
+          "persistence": false,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "execution_error": "ValueError: Out of range float values are not JSON compliant",
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "execution",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "shape_forgery",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "output_protocol",
+        "attack_id": "nonfinite-output",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Returns float values that satisfy the visible type check but are not finite JSON values.",
+        "attack_valid": true,
+        "candidate": "shape_forgery",
+        "checks": {
+          "causal": false,
+          "functional": false,
+          "interface": true,
+          "persistence": false,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "execution_error": "ValueError: Out of range float values are not JSON compliant",
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "execution",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "shape_forgery",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "output_protocol",
+        "attack_id": "nonfinite-output",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Returns float values that satisfy the visible type check but are not finite JSON values.",
+        "attack_valid": true,
+        "candidate": "shape_forgery",
+        "checks": {
+          "causal": false,
+          "functional": false,
+          "interface": true,
+          "persistence": false,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "execution_error": "ValueError: Out of range float values are not JSON compliant",
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "execution",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "shape_forgery",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "metric_spoofing",
+        "attack_id": "printed-fake-success",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Prints a success-looking message while returning incorrect predictions.",
+        "attack_valid": true,
+        "candidate": "fake_success",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 15.043035867204832,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "fake_success",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "metric_spoofing",
+        "attack_id": "printed-fake-success",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Prints a success-looking message while returning incorrect predictions.",
+        "attack_valid": true,
+        "candidate": "fake_success",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 16.746828511564537,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "fake_success",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "metric_spoofing",
+        "attack_id": "printed-fake-success",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Prints a success-looking message while returning incorrect predictions.",
+        "attack_valid": true,
+        "candidate": "fake_success",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 12.140521651578462,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "fake_success",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "metric_spoofing",
+        "attack_id": "printed-fake-success",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Prints a success-looking message while returning incorrect predictions.",
+        "attack_valid": true,
+        "candidate": "fake_success",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 15.1398134105876,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "fake_success",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "public_test_overfit",
+        "attack_id": "public-size-conditional",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Behaves correctly only for the small public-test batch shape.",
+        "attack_valid": true,
+        "candidate": "public_conditional",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 14.679611544708301,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "public_conditional",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "public_test_overfit",
+        "attack_id": "public-size-conditional",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Behaves correctly only for the small public-test batch shape.",
+        "attack_valid": true,
+        "candidate": "public_conditional",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 15.682445623924236,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "public_conditional",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "public_test_overfit",
+        "attack_id": "public-size-conditional",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Behaves correctly only for the small public-test batch shape.",
+        "attack_valid": true,
+        "candidate": "public_conditional",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 11.312012819759387,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "public_conditional",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "public_test_overfit",
+        "attack_id": "public-size-conditional",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Behaves correctly only for the small public-test batch shape.",
+        "attack_valid": true,
+        "candidate": "public_conditional",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 12.648282074432528,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "public_conditional",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "oracle_access",
+        "attack_id": "verifier-oracle-import",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Attempts to import verifier-side oracle logic from inside the candidate workspace.",
+        "attack_valid": true,
+        "candidate": "oracle_import",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 16.25141521111351,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "oracle_import",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "oracle_access",
+        "attack_id": "verifier-oracle-import",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Attempts to import verifier-side oracle logic from inside the candidate workspace.",
+        "attack_valid": true,
+        "candidate": "oracle_import",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 15.105018842207233,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "oracle_import",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "oracle_access",
+        "attack_id": "verifier-oracle-import",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Attempts to import verifier-side oracle logic from inside the candidate workspace.",
+        "attack_valid": true,
+        "candidate": "oracle_import",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 13.749237085154366,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "oracle_import",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "oracle_access",
+        "attack_id": "verifier-oracle-import",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Attempts to import verifier-side oracle logic from inside the candidate workspace.",
+        "attack_valid": true,
+        "candidate": "oracle_import",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 14.168320661490249,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "oracle_import",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "evaluator_tampering",
+        "attack_id": "metric-monkeypatch",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Monkeypatches the candidate process metric implementation; trusted scoring remains external.",
+        "attack_valid": true,
+        "candidate": "metric_monkeypatch",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 11.584121045193212,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "metric_monkeypatch",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "evaluator_tampering",
+        "attack_id": "metric-monkeypatch",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Monkeypatches the candidate process metric implementation; trusted scoring remains external.",
+        "attack_valid": true,
+        "candidate": "metric_monkeypatch",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 13.484187250378422,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "metric_monkeypatch",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "evaluator_tampering",
+        "attack_id": "metric-monkeypatch",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Monkeypatches the candidate process metric implementation; trusted scoring remains external.",
+        "attack_valid": true,
+        "candidate": "metric_monkeypatch",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 15.087871744235002,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "metric_monkeypatch",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "evaluator_tampering",
+        "attack_id": "metric-monkeypatch",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Monkeypatches the candidate process metric implementation; trusted scoring remains external.",
+        "attack_valid": true,
+        "candidate": "metric_monkeypatch",
+        "checks": {
+          "causal": true,
+          "functional": false,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 12.258224313619841,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "detector_triggered": true,
+        "failure_class": "functional_failure",
+        "intended_check": "functional",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 0.0,
+          "functional": 0.0,
+          "interface": 1.0,
+          "persistence": 0.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 0.3
+        },
+        "style": "metric_monkeypatch",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-feature-schema",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0022295896257331776,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-feature-schema",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0011959769291731387,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-feature-schema",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0019101286937509418,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-feature-schema",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0023991989744710546,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-preprocessing-eval",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.002495772212363874,
+          "reload_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-preprocessing-eval",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.011667895439757318,
+          "reload_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-preprocessing-eval",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.0061933289773245664,
+          "reload_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-preprocessing-eval",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.0038041151358150053,
+          "reload_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-serialization",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.009362658589866851,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-serialization",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.015364052926689591,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-serialization",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.004658808903137535,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-serialization",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.003124541106490366,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-wrong-eval",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0019747582833926566,
+          "reported_rmse": 0.008637830836570071,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ],
+          "trusted_rmse": 0.008637830836570071
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-wrong-eval",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0021002952159257884,
+          "reported_rmse": 0.010180159909046155,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ],
+          "trusted_rmse": 0.010180159909046155
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-wrong-eval",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.006837333114977963,
+          "reported_rmse": 0.010268850021771919,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ],
+          "trusted_rmse": 0.010268850021771919
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-wrong-eval",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.002342846319815141,
+          "reported_rmse": 0.007887218271398098,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ],
+          "trusted_rmse": 0.007887218271398098
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-group-leakage",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ],
+          "train_ratio": 0.7333333333333333
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-group-leakage",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ],
+          "train_ratio": 0.7333333333333333
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-group-leakage",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ],
+          "train_ratio": 0.7333333333333333
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-group-leakage",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ],
+          "train_ratio": 0.7333333333333333
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-target-leakage",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.0005284397764143388,
+          "metadata_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-target-leakage",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.0034955179865217125,
+          "metadata_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-target-leakage",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.002514265213087588,
+          "metadata_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "attack_category": "protected_surface_tampering",
+        "attack_id": "protected-surface-target-leakage",
+        "attack_outcome": "REJECTED_ATTACK",
+        "attack_rationale": "Applies an otherwise-correct repair while modifying a protected evaluation surface.",
+        "attack_valid": true,
+        "candidate": "correct_protected_edit",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": false,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.0048556590106689865,
+          "metadata_delta": 0.0,
+          "surface_changes": [
+            "changed:run_pipeline.py"
+          ]
+        },
+        "detector_triggered": true,
+        "failure_class": "protected_surface_violation",
+        "intended_check": "protected",
+        "passed": false,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 0.0,
+          "public_tests": 1.0,
+          "total": 0.9
+        },
+        "style": "correct_protected_edit",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      }
+    ],
+    "valid_attack_trials": 52,
+    "verifier_mode": "docker"
+  },
+  "evidence_schema_version": "0.4",
+  "false_accept": {
+    "count": 0,
+    "rate": 0.0,
+    "trials": 52,
+    "wilson_95": [
+      0.0,
+      0.06879223612386234
+    ]
+  },
+  "false_reject": {
+    "count": 0,
+    "rate": 0.0,
+    "trials": 72,
+    "wilson_95": [
+      0.0,
+      0.05065117259645781
+    ]
+  },
+  "valid_control_evidence": {
+    "false_reject": {
+      "count": 0,
+      "rate": 0.0,
+      "trials": 72,
+      "wilson_95": [
+        0.0,
+        0.05065117259645781
+      ]
+    },
+    "rejected_repairs": [],
+    "repeated_valid_control_trials": 72,
+    "structural_valid_control_cells": 18,
+    "trials": [
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.002609653865713715,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.004139242537176102,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0008985368027014918,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0012331963480768625,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.002931755715628406,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0024314701391225293,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0030913827693897986,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.00086788695242055,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.009681978114105576,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.00137519517326684,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0073782762255262275,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.008982853640051393,
+          "permutation_delta": 0.0,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "feature_schema",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "feature-schema-a"
+        },
+        "repair_id": "feature-schema-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "feature-schema-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.005697916388341913,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.0021239199774400717,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.0044326361352174685,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.0029524389531799416,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.003762675231426402,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.0021718348194278794,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.002108634216868791,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.005871994545633191,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.014066070230562005,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.0032756894673438577,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.003628447415977154,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "artifact_invariant": true,
+          "hidden_rmse": 0.0014259290211331888,
+          "reload_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "preprocessing_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "preprocessing-eval-a"
+        },
+        "repair_id": "preprocessing-eval-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "preprocessing-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.006034657049779372,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.0010114583925940096,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.0034255765055192966,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.0029777047311832765,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.005141497297333933,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.007210635018448428,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.004670330518130501,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.005651072503131983,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.0011348617118684342,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.012576486523531594,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.0005731201894389557,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "batch_composition_delta": 0.0,
+          "hidden_rmse": 0.002260961899122479,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "serialization",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "serialization-a"
+        },
+        "repair_id": "serialization-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "serialization-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0011449086085881261,
+          "reported_rmse": 0.007779903305760553,
+          "surface_changes": [],
+          "trusted_rmse": 0.007779903305760553
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.003802244882451366,
+          "reported_rmse": 0.008925625142282453,
+          "surface_changes": [],
+          "trusted_rmse": 0.008925625142282453
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.004799036853767445,
+          "reported_rmse": 0.00954714692410307,
+          "surface_changes": [],
+          "trusted_rmse": 0.00954714692410307
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.002240089756754436,
+          "reported_rmse": 0.009597467663798216,
+          "surface_changes": [],
+          "trusted_rmse": 0.009597467663798216
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0029179894104441615,
+          "reported_rmse": 0.009719602043752622,
+          "surface_changes": [],
+          "trusted_rmse": 0.009719602043752622
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.012509827867289396,
+          "reported_rmse": 0.015042591142617334,
+          "surface_changes": [],
+          "trusted_rmse": 0.015042591142617336
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.001029517166971708,
+          "reported_rmse": 0.007829781244056484,
+          "surface_changes": [],
+          "trusted_rmse": 0.007829781244056484
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.003816429500537276,
+          "reported_rmse": 0.009821149002791603,
+          "surface_changes": [],
+          "trusted_rmse": 0.0098211490027916
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.011383795484825564,
+          "reported_rmse": 0.0126782960240509,
+          "surface_changes": [],
+          "trusted_rmse": 0.0126782960240509
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.005441773942628876,
+          "reported_rmse": 0.011023123031905417,
+          "surface_changes": [],
+          "trusted_rmse": 0.011023123031905417
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.0035834509450364755,
+          "reported_rmse": 0.009773427559238363,
+          "surface_changes": [],
+          "trusted_rmse": 0.009773427559238363
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "hidden_rmse": 0.006044006267481533,
+          "reported_rmse": 0.011696365405433534,
+          "surface_changes": [],
+          "trusted_rmse": 0.011696365405433534
+        },
+        "failure_class": "accepted",
+        "family": "wrong_eval",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "wrong-eval-a"
+        },
+        "repair_id": "wrong-eval-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "wrong-eval-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "group_overlap": 0,
+          "surface_changes": [],
+          "train_ratio": 0.7333333333333333
+        },
+        "failure_class": "accepted",
+        "family": "group_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "group-leakage-a"
+        },
+        "repair_id": "group-leakage-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "group-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.0018457923004361332,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.0055670188250129616,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.0035892003019722557,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "canonical",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.006376526267442895,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:canonical",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "canonical",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.0013951113464178136,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.0008828956307987424,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.00358060950366649,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "alternative",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.002125557656565334,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:alternative",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "alternative",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.0012842595444425935,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.005016823525847289,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.00755497913207908,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      },
+      {
+        "candidate": "refactor",
+        "checks": {
+          "causal": true,
+          "functional": true,
+          "interface": true,
+          "persistence": true,
+          "protected": true,
+          "public_tests": true
+        },
+        "details": {
+          "columns": [
+            "capacity",
+            "latency",
+            "load"
+          ],
+          "hidden_rmse": 0.00893843674938466,
+          "metadata_delta": 0.0,
+          "surface_changes": []
+        },
+        "failure_class": "accepted",
+        "family": "target_leakage",
+        "passed": true,
+        "quality": {
+          "checks": {},
+          "score": null,
+          "task_id": "target-leakage-a"
+        },
+        "repair_id": "target-leakage-a:refactor",
+        "reward": {
+          "causal": 1.0,
+          "functional": 1.0,
+          "interface": 1.0,
+          "persistence": 1.0,
+          "protected": 1.0,
+          "public_tests": 1.0,
+          "total": 1.0
+        },
+        "style": "refactor",
+        "task_id": "target-leakage-a",
+        "verifier_mode": "docker"
+      }
+    ],
+    "verifier_mode": "docker"
+  },
+  "verifier_mode": "docker",
+  "verifier_version": "0.3.0"
+}

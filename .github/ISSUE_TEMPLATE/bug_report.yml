@@ -1,0 +1,50 @@
+name: Bug report
+description: Report a reproducible PipelineProof software or benchmark defect
+title: "[Bug] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include security-sensitive exploit details here. See SECURITY.md for private reporting guidance."
+  - type: input
+    id: version
+    attributes:
+      label: PipelineProof version or commit
+      placeholder: "0.4.0 or commit SHA"
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Execution mode
+      options:
+        - local
+        - docker
+        - not applicable
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Observed behaviour
+      description: State what happened and why it appears incorrect.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Provide the smallest command sequence or test case that reproduces the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include Python, OS, Docker version, and relevant package information.

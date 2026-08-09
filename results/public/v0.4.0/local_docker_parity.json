@@ -1,0 +1,718 @@
+{
+  "attack_cells": 13,
+  "cells": 31,
+  "disagreement_count": 0,
+  "disagreements": [],
+  "rows": [
+    {
+      "cell": "constant-output",
+      "docker_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "public-fixture-hardcode",
+      "docker_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "nonfinite-output",
+      "docker_checks": {
+        "causal": false,
+        "functional": false,
+        "interface": true,
+        "persistence": false,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": false,
+        "functional": false,
+        "interface": true,
+        "persistence": false,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "printed-fake-success",
+      "docker_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "public-size-conditional",
+      "docker_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "verifier-oracle-import",
+      "docker_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "metric-monkeypatch",
+      "docker_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": false,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "protected-surface-feature-schema",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "protected-surface-preprocessing-eval",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "protected-surface-serialization",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "protected-surface-wrong-eval",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "protected-surface-group-leakage",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "protected-surface-target-leakage",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "docker_outcome": "REJECTED_ATTACK",
+      "docker_passed": false,
+      "kind": "attack",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": false,
+        "public_tests": true
+      },
+      "local_outcome": "REJECTED_ATTACK",
+      "local_passed": false
+    },
+    {
+      "cell": "feature-schema-a:canonical",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "feature-schema-a:alternative",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "feature-schema-a:refactor",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "preprocessing-eval-a:canonical",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "preprocessing-eval-a:alternative",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "preprocessing-eval-a:refactor",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "serialization-a:canonical",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "serialization-a:alternative",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "serialization-a:refactor",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "wrong-eval-a:canonical",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "wrong-eval-a:alternative",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "wrong-eval-a:refactor",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "group-leakage-a:canonical",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "group-leakage-a:alternative",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "group-leakage-a:refactor",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "target-leakage-a:canonical",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "target-leakage-a:alternative",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    },
+    {
+      "cell": "target-leakage-a:refactor",
+      "docker_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "docker_passed": true,
+      "kind": "valid_control",
+      "local_checks": {
+        "causal": true,
+        "functional": true,
+        "interface": true,
+        "persistence": true,
+        "protected": true,
+        "public_tests": true
+      },
+      "local_passed": true
+    }
+  ],
+  "status": "complete",
+  "valid_control_cells": 18
+}

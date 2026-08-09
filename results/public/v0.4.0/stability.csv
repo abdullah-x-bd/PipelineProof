@@ -1,0 +1,13 @@
+task_id,style,rollouts,mean_reward,reward_std,mean_quality,quality_std,stable
+feature-schema-a,broken,4,0.65,0.0,0.6,0.0,True
+feature-schema-a,canonical,4,1.0,0.0,1.0,0.0,True
+preprocessing-eval-a,broken,4,0.65,0.0,0.5,0.0,True
+preprocessing-eval-a,canonical,4,1.0,0.0,1.0,0.0,True
+serialization-a,broken,4,0.3,0.0,0.0,0.0,True
+serialization-a,canonical,4,1.0,0.0,1.0,0.0,True
+wrong-eval-a,broken,4,0.65,0.0,0.5,0.0,True
+wrong-eval-a,canonical,4,1.0,0.0,1.0,0.0,True
+group-leakage-a,broken,4,0.65,0.0,0.6666666666666666,0.0,True
+group-leakage-a,canonical,4,1.0,0.0,1.0,0.0,True
+target-leakage-a,broken,4,0.65,0.0,0.3333333333333333,0.0,True
+target-leakage-a,canonical,4,1.0,0.0,1.0,0.0,True
