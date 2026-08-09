@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
-import sys
 from pathlib import Path
 
 from pipelineproof import __version__
@@ -13,7 +12,11 @@ from pipelineproof.soundness import reproduce
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=Path, default=Path("results/reproduced/v0.4.0"))
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=Path("results/reproduced") / f"v{__version__}",
+    )
     parser.add_argument("--seeds", type=int, default=4)
     return parser
 
