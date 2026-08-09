@@ -7,6 +7,7 @@ from pathlib import Path
 
 from pipelineproof import __version__
 from pipelineproof.catalog import get_task, load_private_spec, task_catalog
+from pipelineproof.evidence import validate_evidence_bundle, write_evidence_manifest
 from pipelineproof.generator import generate_tasks
 from pipelineproof.model_results import write_model_report
 from pipelineproof.quality import quality_score
@@ -51,6 +52,13 @@ def _parser() -> argparse.ArgumentParser:
     reproduce_parser.add_argument("--seeds", type=int, default=4)
     reproduce_parser.add_argument("--mode", choices=["local", "docker"], default="local")
 
+    validate = sub.add_parser("validate-evidence")
+    validate.add_argument("--input", type=Path, required=True)
+    validate.add_argument("--allow-local", action="store_true")
+
+    manifest = sub.add_parser("evidence-manifest")
+    manifest.add_argument("--input", type=Path, required=True)
+
     model_report = sub.add_parser("model-report")
     model_report.add_argument("--input", type=Path, required=True)
     model_report.add_argument("--output", type=Path, required=True)
@@ -65,6 +73,7 @@ def _spec(args):
 
 def main(argv: list[str] | None = None) -> int:
     args = _parser().parse_args(argv)
+    exit_code = 0
     if args.command == "doctor":
         payload = {
             "version": __version__,
@@ -72,6 +81,7 @@ def main(argv: list[str] | None = None) -> int:
             "families": len({task.family for task in task_catalog()}),
             "docker_executable": DockerSandbox().available(),
             "default_verifier_mode": "local",
+            "canonical_scored_mode": "docker",
         }
     elif args.command == "list-tasks":
         payload = [task.public_dict() for task in task_catalog()]
@@ -85,6 +95,11 @@ def main(argv: list[str] | None = None) -> int:
         payload = soundness_receipt(args.seeds, args.mode)
     elif args.command == "reproduce":
         payload = reproduce(args.output, args.mode, args.seeds)
+    elif args.command == "validate-evidence":
+        payload = validate_evidence_bundle(args.input, require_docker=not args.allow_local)
+        exit_code = 0 if payload["valid"] else 1
+    elif args.command == "evidence-manifest":
+        payload = {"manifest": str(write_evidence_manifest(args.input))}
     elif args.command == "model-report":
         payload = write_model_report(args.input, args.output)
     else:
@@ -94,8 +109,8 @@ def main(argv: list[str] | None = None) -> int:
             "docker_executable": DockerSandbox().available(),
         }
     print(json.dumps(payload, indent=2, sort_keys=True))
-    return 0
+    return exit_code
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())
