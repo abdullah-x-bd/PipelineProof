@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/abdullah-x-bd/PipelineProof/schemas/model-rollout.schema.json",
+  "title": "PipelineProof model rollout record",
+  "type": "object",
+  "required": [
+    "model",
+    "provider_route",
+    "harness",
+    "task_id",
+    "rollout_id",
+    "reward",
+    "passed",
+    "independent_quality",
+    "failure_class"
+  ],
+  "properties": {
+    "model": {"type": "string", "minLength": 1},
+    "provider_route": {"type": "string", "minLength": 1},
+    "harness": {"type": "string", "minLength": 1},
+    "task_id": {"type": "string", "minLength": 1},
+    "rollout_id": {"type": ["string", "integer"]},
+    "reward": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+    "passed": {"type": "boolean"},
+    "independent_quality": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+    "failure_class": {"type": "string", "minLength": 1},
+    "model_endpoint": {"type": "string"},
+    "prompt_version": {"type": "string"},
+    "token_limit": {"type": "integer", "minimum": 1},
+    "turn_limit": {"type": "integer", "minimum": 1},
+    "sandbox_image_digest": {"type": "string"},
+    "trajectory_path": {"type": "string"},
+    "patch_path": {"type": "string"},
+    "latency_seconds": {"type": "number", "minimum": 0.0},
+    "input_tokens": {"type": "integer", "minimum": 0},
+    "output_tokens": {"type": "integer", "minimum": 0},
+    "cost_usd": {"type": "number", "minimum": 0.0}
+  },
+  "additionalProperties": true
+}
