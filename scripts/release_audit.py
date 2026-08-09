@@ -13,6 +13,7 @@ REQUIRED_RELEASE_FILES = (
     "CHANGELOG.md",
     "CITATION.cff",
     "CONTRIBUTING.md",
+    "LICENSE",
     "SECURITY.md",
     "docs/BENCHMARK_CARD.md",
     "docs/TASK_TAXONOMY.md",
@@ -43,11 +44,14 @@ def main() -> int:
         errors.append(f"missing release files: {', '.join(missing)}")
 
     pyproject = tomllib.loads((root / "pyproject.toml").read_text(encoding="utf-8"))
-    if "version" in pyproject["project"]:
+    project = pyproject["project"]
+    if "version" in project:
         errors.append("pyproject version must come from the centralized dynamic version")
-    dynamic = set(pyproject["project"].get("dynamic", []))
+    dynamic = set(project.get("dynamic", []))
     if "version" not in dynamic:
         errors.append("pyproject does not declare a dynamic version")
+    if project.get("license") != "MIT":
+        errors.append("pyproject license is not MIT")
     if __version__ != "0.4.0":
         errors.append(f"unexpected runtime version: {__version__}")
 
@@ -60,6 +64,8 @@ def main() -> int:
         errors.append("CITATION.cff is not pinned to CFF 1.2.0")
     if 'version: "0.4.0"' not in citation:
         errors.append("CITATION.cff version does not match v0.4.0")
+    if 'license: "MIT"' not in citation:
+        errors.append("CITATION.cff license does not match the repository license")
 
     evidence_root = (args.evidence or root / "results" / "public" / "v0.4.0").resolve()
     if evidence_root.is_dir():
@@ -73,6 +79,7 @@ def main() -> int:
     payload = {
         "valid": not errors,
         "version": __version__,
+        "license": project.get("license"),
         "required_release_files": len(REQUIRED_RELEASE_FILES),
         "evidence_root": str(evidence_root),
         "evidence_valid": evidence.get("valid", False),
