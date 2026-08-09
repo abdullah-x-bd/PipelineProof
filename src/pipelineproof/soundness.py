@@ -3,11 +3,12 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import platform
 import statistics
 import sys
 import tempfile
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -321,7 +322,9 @@ def valid_control_receipt(
             "rate": false_rejects / len(trials),
             "wilson_95": list(wilson_interval(false_rejects, len(trials))),
         },
-        "rejected_repairs": sorted({trial["repair_id"] for trial in trials if not trial["passed"]}),
+        "rejected_repairs": sorted(
+            {trial["repair_id"] for trial in trials if not trial["passed"]}
+        ),
         "trials": trials,
     }
 
@@ -360,10 +363,18 @@ def attack_matrix(receipt: dict[str, Any]) -> list[dict[str, Any]]:
                 "seed_trials": len(selected),
                 "valid_trials": sum(trial["attack_valid"] for trial in selected),
                 "invalid_trials": sum(not trial["attack_valid"] for trial in selected),
-                "false_accepts": sum(trial["attack_outcome"] == "ACCEPTED_ATTACK" for trial in selected),
-                "clean_rejections": sum(trial["attack_outcome"] == "REJECTED_ATTACK" for trial in selected),
-                "other_rejections": sum(trial["attack_outcome"] == "REJECTED_OTHER_CHECK" for trial in selected),
-                "public_tests_pass_all": all(trial["checks"]["public_tests"] for trial in selected),
+                "false_accepts": sum(
+                    trial["attack_outcome"] == "ACCEPTED_ATTACK" for trial in selected
+                ),
+                "clean_rejections": sum(
+                    trial["attack_outcome"] == "REJECTED_ATTACK" for trial in selected
+                ),
+                "other_rejections": sum(
+                    trial["attack_outcome"] == "REJECTED_OTHER_CHECK" for trial in selected
+                ),
+                "public_tests_pass_all": all(
+                    trial["checks"]["public_tests"] for trial in selected
+                ),
                 "rationale": case.rationale,
             }
         )
@@ -692,6 +703,8 @@ def reproduce(
     }
     environment = {
         "evidence_schema_version": EVIDENCE_SCHEMA_VERSION,
+        "source_commit": os.environ.get("GITHUB_SHA")
+        or os.environ.get("PIPELINEPROOF_SOURCE_COMMIT"),
         "python": sys.version,
         "platform": platform.platform(),
         "requested_mode": mode,
@@ -744,7 +757,9 @@ def reproduce(
         "invalid_attack_trials": receipt["attack_evidence"]["invalid_attack_trials"],
         "false_accepts": receipt["false_accept"]["count"],
         "false_accept_trials": receipt["false_accept"]["trials"],
-        "structural_valid_control_cells": receipt["valid_control_evidence"]["structural_valid_control_cells"],
+        "structural_valid_control_cells": receipt["valid_control_evidence"][
+            "structural_valid_control_cells"
+        ],
         "false_rejects": receipt["false_reject"]["count"],
         "false_reject_trials": receipt["false_reject"]["trials"],
         "reward_ladder_strictly_monotonic": ladder["strictly_monotonic"],
