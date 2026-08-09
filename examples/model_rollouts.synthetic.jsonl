@@ -1,0 +1,8 @@
+{"model":"synthetic-strong","provider_route":"fixture","harness":"pipelineproof-example","task_id":"feature-schema-a","rollout_id":"1","reward":1.0,"passed":true,"independent_quality":1.0,"failure_class":"success"}
+{"model":"synthetic-strong","provider_route":"fixture","harness":"pipelineproof-example","task_id":"feature-schema-a","rollout_id":"2","reward":0.9,"passed":false,"independent_quality":0.95,"failure_class":"partial_repair"}
+{"model":"synthetic-strong","provider_route":"fixture","harness":"pipelineproof-example","task_id":"wrong-eval-a","rollout_id":"1","reward":0.9,"passed":false,"independent_quality":0.9,"failure_class":"partial_repair"}
+{"model":"synthetic-strong","provider_route":"fixture","harness":"pipelineproof-example","task_id":"wrong-eval-a","rollout_id":"2","reward":1.0,"passed":true,"independent_quality":1.0,"failure_class":"success"}
+{"model":"synthetic-weak","provider_route":"fixture","harness":"pipelineproof-example","task_id":"feature-schema-a","rollout_id":"1","reward":0.3,"passed":false,"independent_quality":0.2,"failure_class":"capability_limit"}
+{"model":"synthetic-weak","provider_route":"fixture","harness":"pipelineproof-example","task_id":"feature-schema-a","rollout_id":"2","reward":0.4,"passed":false,"independent_quality":0.3,"failure_class":"capability_limit"}
+{"model":"synthetic-weak","provider_route":"fixture","harness":"pipelineproof-example","task_id":"wrong-eval-a","rollout_id":"1","reward":0.2,"passed":false,"independent_quality":0.1,"failure_class":"capability_limit"}
+{"model":"synthetic-weak","provider_route":"fixture","harness":"pipelineproof-example","task_id":"wrong-eval-a","rollout_id":"2","reward":0.3,"passed":false,"independent_quality":0.2,"failure_class":"capability_limit"}
