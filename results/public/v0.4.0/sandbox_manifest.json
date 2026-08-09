@@ -4,7 +4,7 @@
     "candidate_mount": "read-only",
     "capabilities": "dropped",
     "cpu_limit": 1,
-    "image": "pipelineproof-task:0.3.0",
+    "image": "pipelineproof-task:0.4.0",
     "memory_limit_mb": 512,
     "mode": "docker",
     "network": "none",
