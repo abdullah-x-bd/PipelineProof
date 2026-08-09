@@ -114,10 +114,31 @@ jobs:
           path: /tmp/pipelineproof-evidence-docker
           if-no-files-found: error
 
+  release-audit:
+    name: research-release-audit
+    needs: evidence-docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e ".[dev]"
+      - uses: actions/download-artifact@v4
+        with:
+          name: pipelineproof-evidence-docker
+          path: /tmp/pipelineproof-evidence-docker
+      - run: pipelineproof model-report --input examples/model_rollouts.synthetic.jsonl --output /tmp/pipelineproof-model-report
+      - run: test -f /tmp/pipelineproof-model-report/model_panel.json
+      - run: test -f /tmp/pipelineproof-model-report/best_of_n.json
+      - run: test -f /tmp/pipelineproof-model-report/failure_breakdown.json
+      - run: python scripts/release_audit.py --evidence /tmp/pipelineproof-evidence-docker
+
   commit-evidence:
     name: persist-canonical-evidence
     if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-    needs: evidence-docker
+    needs: [evidence-docker, release-audit]
     runs-on: ubuntu-latest
     permissions:
       contents: write
