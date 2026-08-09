@@ -1,0 +1,18 @@
+cff-version: "1.2.0"
+message: "If you use PipelineProof in research, please cite this software release and the exact commit used for evaluation."
+title: "PipelineProof"
+type: software
+version: "0.4.0"
+date-released: "2026-08-09"
+authors:
+  - given-names: "Abdullah"
+    family-names: "X"
+repository-code: "https://github.com/abdullah-x-bd/PipelineProof"
+url: "https://github.com/abdullah-x-bd/PipelineProof"
+abstract: "PipelineProof is an execution-based benchmark and reinforcement-learning environment for repairing silent machine-learning pipeline integrity failures using held-back behavioural verification."
+keywords:
+  - "machine learning"
+  - "benchmark"
+  - "coding agents"
+  - "reinforcement learning"
+  - "ML integrity"
