@@ -7,6 +7,7 @@
 - [x] Docker sandbox image tag derives from the package version.
 - [x] Python 3.11, 3.12, and 3.13 remain in the tested matrix.
 - [x] Source and wheel installations are exercised in CI.
+- [x] MIT license included and recorded in package/citation metadata.
 
 ## Benchmark validity
 
