@@ -1,7 +1,7 @@
 {
   "attack_battery_version": "2.0.0",
   "docker_available": true,
-  "docker_image_id": "sha256:fdaa462cc8b2dbc14c70f29cf9420a3cd6f837d4cb25124eb7878f211e32afcf",
+  "docker_image_id": "sha256:2cf223ed0090d02276ddfc793b759bd929d9ab16216c75d0de101f1695a00e93",
   "evidence_schema_version": "0.4",
   "platform": "Linux-6.17.0-1020-azure-x86_64-with-glibc2.39",
   "python": "3.11.15 (main, Jun 16 2026, 21:41:52) [GCC 13.3.0]",
@@ -40,5 +40,5 @@
     "local_mode_role": "development and debugging"
   },
   "seed_count": 4,
-  "source_commit": "0621117b853ddd2b94d324aa1a83076fa2dcd976"
+  "source_commit": "f3ec97444ca06ad51291a2a21d36f8bef8200f29"
 }

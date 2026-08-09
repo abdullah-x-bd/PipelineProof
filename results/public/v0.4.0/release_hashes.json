@@ -49,7 +49,7 @@
   "src/pipelineproof/quality.py": "c1103ff719b45581137c4a90eecfaf0a540459f1c44895b38e4e7de25c22414c",
   "src/pipelineproof/sandbox.py": "aefece18d99cb45992063da77ff0175ccc72c28234f21ce6b0b7a319729b7328",
   "src/pipelineproof/schema.py": "b217442cd26c471670baa94b80198f725e88377a002fac1ff0356d2c846800fd",
-  "src/pipelineproof/soundness.py": "4d463b02a0579ddc7d4a40e4ae1913badcc853480c32ae62e01e692c2ab41926",
+  "src/pipelineproof/soundness.py": "6d146c5eb1ee73a014e9acf5c6dcddd2aeb1f3f1e6266bb3764f221b6fd7bdac",
   "src/pipelineproof/stats.py": "a14280c6c2c29d4daaf45b9cceb50d1d8c4b566b910d34f74b26f3e7c1c50e9f",
   "src/pipelineproof/templates.py": "769a1c49f08b76f29680082b82e674fc0768ab7b67b6bf13d43142002af90135",
   "src/pipelineproof/verifier.py": "0a7a5e7675f01ad13c05895b919a4d6ac10efc24838213763b476a197619c381",
