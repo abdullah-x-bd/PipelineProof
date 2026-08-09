@@ -4,7 +4,7 @@
 
 **PipelineProof** is an execution-based benchmark and RL environment for evaluating whether coding agents can repair **silent machine-learning pipeline integrity failures**. The benchmark is intentionally narrower than general software engineering or end-to-end AutoML benchmarks: it focuses on cases where a repository can execute, preserve an apparently reasonable interface, and pass visible tests while the resulting ML pipeline is still methodologically invalid.
 
-The current public development release contains six defect families and a trusted verifier with family-specific held-back interventions.
+The v0.4.0 public development release contains six defect families and a trusted verifier with family-specific held-back interventions.
 
 ## Research question
 
@@ -126,7 +126,15 @@ See `THREAT_MODEL.md`, `VERIFIER_SPEC.md`, and generated `attack_matrix.csv`.
 
 ## Evidence protocol
 
-The canonical evidence command is:
+Canonical release reproduction is:
+
+```bash
+python scripts/reproduce_release.py \
+  --output results/reproduced/v0.4.0 \
+  --seeds 4
+```
+
+The lower-level benchmark command is:
 
 ```bash
 pipelineproof reproduce \
@@ -149,7 +157,16 @@ The reproduction bundle includes:
 - environment metadata;
 - source hashes;
 - machine-readable summary;
-- human-readable `summary.md`.
+- human-readable `summary.md`;
+- SHA-256 `MANIFEST.sha256` covering the evidence artifacts.
+
+The committed canonical bundle can be independently checked with:
+
+```bash
+pipelineproof validate-evidence --input results/public/v0.4.0
+```
+
+The validator checks structural counts, soundness/summary consistency, attack validity, intended-detector rejection, legitimate-repair acceptance, reward ordering, deterministic stability, Docker execution, local/Docker parity, provenance fields, source-hash exclusions, and the evidence digest manifest.
 
 ## Statistical reporting
 
@@ -180,7 +197,7 @@ The v0.4 evidence workflow runs the full structural battery through Docker and s
 
 ## Model evaluation
 
-PipelineProof does not call model providers directly. A harness may write one JSON object per rollout using the schema in `MODEL_EVALUATION.md`.
+PipelineProof does not call model providers directly. A harness may write one JSON object per rollout using `MODEL_EVALUATION.md` and `../schemas/model-rollout.schema.json`.
 
 The reporting command:
 
@@ -196,7 +213,7 @@ produces:
 - best-of-N curves;
 - failure counts.
 
-No frontier-model leaderboard is part of the zero-cost verifier evidence. Synthetic or fixture rollouts used to test reporting must be labelled as fixtures, never as empirical model results.
+No frontier-model leaderboard is part of the zero-cost verifier evidence. `examples/model_rollouts.synthetic.jsonl` exists only to exercise the reporting pipeline and must never be presented as empirical model results.
 
 ## Known limitations
 
@@ -211,9 +228,11 @@ No frontier-model leaderboard is part of the zero-cost verifier evidence. Synthe
 
 ## Reproducibility
 
-The package is installable and tested through CI. Release CI validates source installation, wheel installation, Docker execution, full evidence generation, evidence invariants, and model-report generation.
+The package is installable and tested through CI. Release CI validates source installation, wheel installation, Python 3.11 through 3.13, Docker execution, slow research-evidence tests, full evidence generation, evidence-manifest integrity, release invariants, model-report generation, and the standalone release audit.
 
-The generated environment record includes Python/platform information, seed count, execution mode, attack-battery version, and sandbox metadata. Source hashes exclude transient version-control, build, cache, and evidence-output state.
+The generated environment record includes Python/platform information, seed count, execution mode, attack-battery version, exact source commit, sandbox metadata, and Docker image identity. Source hashes exclude transient version-control, build, cache, and evidence-output state.
+
+The source revision that produces canonical evidence is intentionally distinct from the later evidence-only commit that stores the validated artifact. `RELEASE_PROCESS.md` documents this provenance rule and the `[skip ci]` evidence persistence step that prevents recursive self-referential evidence runs.
 
 ## Versioning
 
@@ -221,6 +240,8 @@ The v0.3 baseline evidence is frozen under `results/archive/v0.3.0/BASELINE.md` 
 
 The v0.4 hardening pass changes the **evidence schema and attack validation**, not the conceptual six-family benchmark scope. In particular, v0.4 separates structural coverage from seed repetitions and excludes invalid attack fixtures from the soundness denominator.
 
+The package version has a single runtime source in `src/pipelineproof/_version.py`, which is also used to derive the canonical Docker image tag.
+
 ## Citation
 
-Until a formal paper or archival software release is supplied, cite the repository and exact version/commit used for evaluation. A future `CITATION.cff` release artifact can provide a preferred citation without changing benchmark semantics.
+The repository includes a root `CITATION.cff` file for machine-readable software citation metadata. Cite PipelineProof using the exact release version and commit used for evaluation. If an archival DOI or accompanying paper is assigned later, citation metadata can be updated without changing the benchmark's empirical claims.
