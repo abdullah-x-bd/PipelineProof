@@ -8,6 +8,8 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+from pipelineproof._version import __version__
+
 
 @dataclass(frozen=True)
 class RunResult:
@@ -99,7 +101,7 @@ class LocalSandbox:
 
 class DockerSandbox:
     name = "docker"
-    image = "pipelineproof-task:0.3.0"
+    image = f"pipelineproof-task:{__version__}"
 
     def __init__(self, timeout_seconds: int = 30, output_limit: int = 1_000_000):
         self.timeout_seconds = timeout_seconds
