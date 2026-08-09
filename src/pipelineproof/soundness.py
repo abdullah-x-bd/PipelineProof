@@ -643,7 +643,7 @@ def _summary_markdown(
     parity_text = (
         f"{parity['disagreement_count']} disagreements across {parity['cells']} cells"
         if parity["status"] == "complete"
-        else "not run on this host"
+        else parity.get("reason", "not run")
     )
     return f"""# PipelineProof evidence summary
 
@@ -692,7 +692,16 @@ def reproduce(
     controls = family_controls(mode)
     stability = stability_report(seed_count, mode)
     search = candidate_search(mode)
-    parity = parity_report()
+    if mode == "docker":
+        parity = parity_report()
+    else:
+        parity = {
+            "status": "not_run",
+            "reason": "parity is executed only during canonical Docker reproduction",
+            "attack_cells": len(ATTACK_CASES),
+            "valid_control_cells": len(task_catalog()) * len(VALID_CONTROLS),
+            "disagreements": [],
+        }
     docker = DockerSandbox()
     sandbox = {
         "local": LocalSandbox().manifest(),
@@ -703,8 +712,8 @@ def reproduce(
     }
     environment = {
         "evidence_schema_version": EVIDENCE_SCHEMA_VERSION,
-        "source_commit": os.environ.get("GITHUB_SHA")
-        or os.environ.get("PIPELINEPROOF_SOURCE_COMMIT"),
+        "source_commit": os.environ.get("PIPELINEPROOF_SOURCE_COMMIT")
+        or os.environ.get("GITHUB_SHA"),
         "python": sys.version,
         "platform": platform.platform(),
         "requested_mode": mode,
